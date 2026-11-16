@@ -1,10 +1,10 @@
 # Thông tin nhóm
 
-- Tên nhóm:
-- Mã thành viên (ba chữ số):
-- Người điều phối:
-- Người review bản cuối:
-- Commit chốt bài (điền ở kênh nộp sau khi commit):
+- Tên nhóm: TMT
+- Mã thành viên (ba chữ số): 106, 157
+- Người điều phối: 106
+- Người review bản cuối: 157
+- Commit chốt bài (điền ở kênh nộp sau khi commit): Chờ điền khi nộp bài
 
 ## Kết quả tóm tắt (điền cuối bài)
 
