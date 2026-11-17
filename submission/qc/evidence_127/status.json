@@ -1,0 +1,37 @@
+{
+  "source_labels_127_sha256": "c7e2bf3be1d32a1a3b308b92d53a0584eb9dd2314a3a3163224c9874946ef35d",
+  "independent_label_files_present": [
+    "106",
+    "127"
+  ],
+  "missing_label_files": [
+    "157"
+  ],
+  "available_assignment_slots": 53,
+  "required_assignment_slots": 80,
+  "missing_individual_notes": [
+    "106",
+    "157"
+  ],
+  "checks": {
+    "validation": {
+      "command": "python scripts/validate_labels.py --all",
+      "exit_code": 0
+    },
+    "iaa": {
+      "command": "python scripts/qc_compare.py",
+      "exit_code": 2
+    },
+    "check_submission": {
+      "command": "python scripts/check_submission.py --round 1",
+      "exit_code": 1
+    }
+  },
+  "review": {
+    "images": 27,
+    "images_with_findings": 23,
+    "findings": 79,
+    "formal_human_qc": false
+  },
+  "ready_for_release": false
+}

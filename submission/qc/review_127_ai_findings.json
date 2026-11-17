@@ -1,0 +1,2140 @@
+{
+  "date": "2026-11-17",
+  "member_scope": "127",
+  "reviewer": "Codex / AI-assisted visual review",
+  "formal_human_qc": false,
+  "source_file": "submission/labels/127.json",
+  "source_sha256": "c7e2bf3be1d32a1a3b308b92d53a0584eb9dd2314a3a3163224c9874946ef35d",
+  "source_annotations_modified": false,
+  "coordinate_note": "Proposed coordinates are approximate original-pixel COCO xywh unless explicitly named xyxy; not applied.",
+  "images_reviewed": 27,
+  "images_with_findings": 23,
+  "findings": 79,
+  "images": [
+    {
+      "image": "img_001.jpg",
+      "status": "rework_required",
+      "observations": "Quán ăn sau một pickup trắng; nhiều người ngồi và một người đứng tiền cảnh. Box hiện tại không ôm từng cá thể.",
+      "findings": [
+        {
+          "annotation_ids": [
+            1
+          ],
+          "issue": "loose_or_shifted_bbox",
+          "severity": "major",
+          "rule_id": "R-01",
+          "rationale": "Box truck bắt đầu x=500 bỏ phần thùng sau nhìn thấy ở khoảng x=334; mép trên thực khoảng y=98, bánh/thân xe bị cắt ở dưới và bên phải.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 1,
+              "bbox_xywh": [
+                334,
+                98,
+                626,
+                542
+              ],
+              "truncated": "yes"
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            5
+          ],
+          "issue": "wrong_bbox_and_truncation",
+          "severity": "major",
+          "rule_id": "R-01/R-02",
+          "rationale": "Box #5 x=380..540 không ôm người phụ nữ đứng có tóc dài ở x~228..388; phần chân người này ra ngoài mép dưới ảnh.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 5,
+              "bbox_xywh": [
+                228,
+                196,
+                160,
+                444
+              ],
+              "attributes": {
+                "truncated": "yes"
+              }
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            2,
+            3,
+            4,
+            6
+          ],
+          "issue": "person_boxes_misaligned_or_merged",
+          "severity": "major",
+          "rule_id": "R-01/R-03",
+          "rationale": "Các box người ngồi lệch rõ: #6 chứa nhiều xe thay vì ôm người đàn ông tóc bạc ở x~525..648,y~113..307; các box trái bỏ chân/đầu hoặc lẫn người kế bên. Cần tách lại từng người thật; không đủ căn cứ ghép mọi ID với đúng cá thể chỉ từ box hiện có.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 6,
+              "bbox_xywh": [
+                525,
+                113,
+                123,
+                194
+              ]
+            }
+          ],
+          "requires_human_confirmation": true
+        }
+      ],
+      "summary_vi": "Box truck #1 bỏ phần thùng xe bên trái; box người #5 lệch khỏi người phụ nữ đứng và chưa ghi nhận phần chân bị cắt ở mép dưới. Cần ôm lại từng cá thể, đặc biệt #6 đang chứa nhiều phần xe thay vì người đàn ông tóc bạc; rà các box #2–#4 để tách đúng người ngồi."
+    },
+    {
+      "image": "img_002.jpg",
+      "status": "rework_required",
+      "observations": "Xe tải chở 8 xe con nhìn thấy được (5 trên,3 dưới), một người đứng cạnh đuôi bên phải.",
+      "findings": [
+        {
+          "annotation_ids": [
+            7
+          ],
+          "issue": "loose_or_shifted_bbox",
+          "severity": "major",
+          "rule_id": "R-01/R-04",
+          "rationale": "Truck gồm khung chở cố định nhưng box hiện tại bỏ gương/trụ khung ở x~135,y~127 và dư đất tới y=570. Cần ôm xe chở, không theo các xe hàng phía trên.",
+          "confidence": "high",
+          "proposals": [],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "issue": "car_boxes_shifted_and_missing_car",
+          "severity": "major",
+          "rule_id": "R-01/R-04",
+          "rationale": "Chỉ 7 box car cho 8 xe. #11 gộp vùng hai xe tầng trên; #14 nằm ở đất/phần đuôi thay vì xe con tầng dưới. Xe trắng cuối tầng trên tại khoảng x=815..894,y=171..268 thiếu box.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 8,
+              "bbox_xywh": [
+                152,
+                47,
+                357,
+                163
+              ]
+            },
+            {
+              "id": 9,
+              "bbox_xywh": [
+                496,
+                90,
+                148,
+                126
+              ]
+            },
+            {
+              "id": 10,
+              "bbox_xywh": [
+                628,
+                119,
+                110,
+                104
+              ]
+            },
+            {
+              "id": 11,
+              "bbox_xywh": [
+                717,
+                149,
+                114,
+                106
+              ]
+            },
+            {
+              "id": 12,
+              "bbox_xywh": [
+                485,
+                250,
+                111,
+                138
+              ]
+            },
+            {
+              "id": 13,
+              "bbox_xywh": [
+                580,
+                252,
+                124,
+                116
+              ]
+            },
+            {
+              "id": 14,
+              "bbox_xywh": [
+                727,
+                281,
+                80,
+                111
+              ]
+            },
+            {
+              "action": "add",
+              "class": "car",
+              "bbox_xywh": [
+                815,
+                171,
+                79,
+                97
+              ]
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            15
+          ],
+          "issue": "loose_bbox_and_wrong_truncated",
+          "severity": "major",
+          "rule_id": "R-01/R-02",
+          "rationale": "Người đứng cạnh đuôi xe ở x~859..894,y~310..427, không bị mép ảnh cắt. Box hiện x=875..940,y=300..560 chứa nhiều đất và cờ truncated=yes không đúng.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 15,
+              "bbox_xywh": [
+                859,
+                310,
+                35,
+                117
+              ],
+              "attributes": {
+                "truncated": "no"
+              }
+            }
+          ],
+          "requires_human_confirmation": true
+        }
+      ],
+      "summary_vi": "Ảnh có tám xe con được chở nhưng hiện chỉ có bảy box car #8–#14; thiếu xe trắng cuối tầng trên. Các box xe bị lệch hoặc dư nền, đặc biệt #11 và #14; người #15 cần thu nhỏ theo người đứng cạnh đuôi và đổi truncated thành no sau khi kiểm lại."
+    },
+    {
+      "image": "img_004.jpg",
+      "status": "rework_required",
+      "observations": "Hai tuk-tuk đỗ ban đêm, cả hai có người ngồi rõ sau kính/mái; lớp phương tiện đúng nhưng thiếu người.",
+      "findings": [
+        {
+          "annotation_ids": [
+            16,
+            17
+          ],
+          "issue": "loose_or_incomplete_bbox",
+          "severity": "major",
+          "rule_id": "R-01/R-10",
+          "rationale": "Box trái bỏ biển TAXI gắn trên mái khoảng y=45..82. Box phải kéo tới x=930,y=520 dù bánh/kết cấu chính kết thúc khoảng x=838,y=452. Cần tính phụ kiện cố định; ăng-ten dài trên xe phải cần kiểm chính xác phạm vi.",
+          "confidence": "high",
+          "proposals": [],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [],
+          "issue": "missing_drivers",
+          "severity": "major",
+          "rule_id": "R-03",
+          "rationale": "Có người lái/đang ngồi trong cả hai xe. Người xe phải nhìn thấy tại x~575..668,y~141..353; người xe trái thấy đầu/thân sau kính và chân thấp hơn. Hiện không có box person nào.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "action": "add",
+              "class": "person",
+              "bbox_xywh": [
+                575,
+                141,
+                93,
+                212
+              ],
+              "attributes": {
+                "occluded_level": "2",
+                "truncated": "no"
+              }
+            },
+            {
+              "action": "review_add",
+              "class": "person",
+              "region": "xe trái, đầu/thân sau kính x~238..343,y~136..226; phần chân ở x~188..229,y~392..423; xác minh cùng cá thể trước khi ôm chung"
+            }
+          ],
+          "requires_human_confirmation": true
+        }
+      ],
+      "summary_vi": "Hai lớp tuk_tuk #16–#17 phù hợp với hình xe, nhưng box #16 bỏ biển TAXI trên mái và #17 dư nhiều nền. Cần thêm box person riêng cho người ngồi trong mỗi xe, rồi kiểm các phần cơ thể bị che trước khi chốt biên."
+    },
+    {
+      "image": "img_005.jpg",
+      "status": "rework_required",
+      "observations": "Cảnh giao thông đông với van nền, nhiều xe máy và ít nhất năm người đội mũ bảo hiểm tách được.",
+      "findings": [
+        {
+          "annotation_ids": [
+            18
+          ],
+          "issue": "incomplete_bbox_and_wrong_attributes",
+          "severity": "major",
+          "rule_id": "R-01/R-02",
+          "rationale": "Van có mái khoảng y=25 và phần thân/bánh xuống khoảng y=360, kéo ra mép phải ảnh; box hiện y=0..270 bỏ phần thân và dư phần trên. Người tiền cảnh che van đáng kể, occ=0 chưa phù hợp; truncated=no cần đổi vì thân xe ra khỏi mép phải.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 18,
+              "bbox_xywh": [
+                63,
+                25,
+                897,
+                335
+              ],
+              "attributes": {
+                "truncated": "yes",
+                "can_review": true
+              }
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            20,
+            21,
+            22
+          ],
+          "issue": "persons_merged_missing_and_truncated",
+          "severity": "major",
+          "rule_id": "R-01/R-03",
+          "rationale": "Ba box person đang bao nhiều cá thể. Người đàn ông tiền cảnh x~27..443,y~222..640 và người áo xanh mũ trắng x~538..897,y~145..640 không có box riêng ôm đúng cơ thể; cả hai bị cắt ở dưới. Có người mũ đen khẩu trang hồng, người áo sọc mũ xanh, người mũ hồng phía sau; cần tách từng người.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "action": "add_or_reassign",
+              "class": "person",
+              "bbox_xywh": [
+                27,
+                222,
+                416,
+                418
+              ],
+              "attributes": {
+                "truncated": "yes"
+              }
+            },
+            {
+              "action": "add_or_reassign",
+              "class": "person",
+              "bbox_xywh": [
+                538,
+                145,
+                359,
+                495
+              ],
+              "attributes": {
+                "truncated": "yes"
+              }
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            19
+          ],
+          "issue": "missing_motorcycle_and_mixed_bbox",
+          "severity": "major",
+          "rule_id": "R-03",
+          "rationale": "Một box motorcycle bên trái không bao quát những xe khác: có xe riêng ở bên phải người áo xanh, gương/tay lái/bánh/thân nhìn thấy x~743..960,y~320..640. Cần tách xe thực, không kéo box qua cơ thể người.",
+          "confidence": "high",
+          "proposals": [],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [],
+          "issue": "uncertain_occluded_person",
+          "severity": "major",
+          "rule_id": "R-12",
+          "rationale": "Mũ bảo hiểm sáng màu phía sau người áo sọc ở x~434..522,y~93..199 có thể thuộc người thứ sáu bị che gần hết. Cần phóng to xác minh cá thể, không thêm chỉ vì thấy hình giống mũ.",
+          "confidence": "medium",
+          "proposals": [],
+          "requires_human_confirmation": true
+        }
+      ],
+      "summary_vi": "Box van #18 bỏ phần thân dưới và chưa thể hiện việc xe ra khỏi mép phải. Ba box người #20–#22 đang bao nhiều cá thể; cần tách người tiền cảnh, người áo xanh và những người phía sau, đồng thời bổ sung các xe máy nhìn thấy riêng biệt."
+    },
+    {
+      "image": "img_007.jpg",
+      "status": "rework_required",
+      "observations": "Trong gara có xe Isuzu phải và xe pickup chở thùng cao ở giữa.",
+      "findings": [
+        {
+          "annotation_ids": [
+            24
+          ],
+          "issue": "wrong_class_and_bbox",
+          "severity": "major",
+          "rule_id": "R-01/R-09",
+          "rationale": "Xe giữa có cabin pickup và thùng chở sau tách biệt; theo taxonomy phải là truck, không phải car. Box hiện bỏ thùng cao y~129..220 và dư nền xuống y=500.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 24,
+              "class": "truck",
+              "bbox_xywh": [
+                384,
+                129,
+                262,
+                286
+              ],
+              "attributes": {
+                "can_review": true
+              }
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            23
+          ],
+          "issue": "loose_or_shifted_bbox",
+          "severity": "major",
+          "rule_id": "R-01/R-02",
+          "rationale": "Box xe phải bắt từ x=700,y=0 bỏ cạnh thùng trái tại x~663 và dư cả mái gara/nền; xe chính khoảng x=663..960,y=57..454, cắt bởi mép phải.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 23,
+              "bbox_xywh": [
+                663,
+                57,
+                297,
+                397
+              ],
+              "attributes": {
+                "truncated": "yes"
+              }
+            }
+          ],
+          "requires_human_confirmation": true
+        }
+      ],
+      "summary_vi": "Xe pickup chở thùng giữa ảnh #24 phải được rà đổi từ car sang truck theo kết cấu cabin và thùng tách biệt. Cả #23 và #24 đều dư nền hoặc bỏ phần xe nhìn thấy, nên cần ôm lại box; #23 bị cắt ở mép phải."
+    },
+    {
+      "image": "img_008.jpg",
+      "status": "rework_required",
+      "observations": "Hàng xe máy đỗ và nhiều người trên phố đêm; box người trái #30 phủ mũ và xe không có người rõ.",
+      "findings": [
+        {
+          "annotation_ids": [
+            30
+          ],
+          "issue": "spurious_person",
+          "severity": "major",
+          "rule_id": "R-05",
+          "rationale": "Vùng #30 x=0..170,y=170..430 chứa xe máy/mũ treo, không thấy cơ thể người thật tương ứng. Không dùng box person chỉ vì có mũ trên xe.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 30,
+              "action": "remove_after_confirmation"
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            26
+          ],
+          "issue": "wrong_bbox_and_truncated",
+          "severity": "major",
+          "rule_id": "R-01/R-02",
+          "rationale": "Người lái tiền cảnh có tay trái đến x~607, đầu y~153 và chân ra mép dưới y=640; box hiện x=670..900,y=100..540 bỏ tay/chân, thêm nền trên.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 26,
+              "bbox_xywh": [
+                607,
+                153,
+                251,
+                487
+              ],
+              "attributes": {
+                "truncated": "yes"
+              }
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            28
+          ],
+          "issue": "merged_person_bbox",
+          "severity": "major",
+          "rule_id": "R-01",
+          "rationale": "Người áo ghi-lê đỏ số7 ở x~195..319,y~181..406; box hiện x=230..500,y=150..500 phủ người khác, xe và nền.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 28,
+              "bbox_xywh": [
+                195,
+                181,
+                124,
+                225
+              ]
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            27,
+            29
+          ],
+          "issue": "motorcycle_boxes_need_instance_review",
+          "severity": "major",
+          "rule_id": "R-01/R-06",
+          "rationale": "Các box lớn ở dãy xe trái bao nhiều xe đỗ, không ôm từng xe. Có xe rõ tách được tại x~84..390,y~294..621 và các xe khác ở x~313..582,y~237..491. Không gom cá thể rõ vào cùng box.",
+          "confidence": "high",
+          "proposals": [],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [],
+          "issue": "missing_people",
+          "severity": "major",
+          "rule_id": "R-03/R-06",
+          "rationale": "Ít nhất người áo vàng x~501..547,y~187..254, người khẩu trang x~416..452,y~193..257 và người lái xe phía xa x~679..725,y~198..294 đủ cao20px nhưng không có box riêng. Cần kiểm phần người bị khuất để không vẽ lấn xe.",
+          "confidence": "high",
+          "proposals": [],
+          "requires_human_confirmation": true
+        }
+      ],
+      "summary_vi": "Box person #30 phủ mũ và xe đỗ mà không thấy người tương ứng, cần xác minh để bỏ nhãn thừa. Box #26 bỏ tay/chân người lái và #28 phủ nhiều cá thể; cần ôm lại từng người, rà các xe #27–#29 và bổ sung người rõ ở phía sau."
+    },
+    {
+      "image": "img_010.jpg",
+      "status": "rework_required",
+      "observations": "Chợ với người bán, xe máy chở người lớn/trẻ em và người phụ nữ trên xe phía phải; xe đỗ nền cũng nhìn rõ.",
+      "findings": [
+        {
+          "annotation_ids": [
+            32
+          ],
+          "issue": "merged_person_and_missing_people",
+          "severity": "major",
+          "rule_id": "R-01/R-03",
+          "rationale": "Một box person #32 x=160..520,y=130..570 trùm người lớn ngồi xe, trẻ mũ đỏ và người bán áo hồng; mỗi cá thể cần box riêng. Trẻ mũ đỏ và người bán hiện chưa có box riêng.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "action": "add_or_reassign",
+              "class": "person",
+              "bbox_xywh": [
+                120,
+                117,
+                229,
+                307
+              ],
+              "description": "trẻ mũ đỏ, ôm phần nhìn thấy"
+            },
+            {
+              "action": "add_or_reassign",
+              "class": "person",
+              "bbox_xywh": [
+                301,
+                114,
+                151,
+                398
+              ],
+              "description": "người bán áo hồng"
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            34
+          ],
+          "issue": "loose_bbox",
+          "severity": "major",
+          "rule_id": "R-01",
+          "rationale": "Người phụ nữ áo xanh bên phải thực khoảng x=559..803,y=126..589; box hiện x=600..920,y=80..620 bỏ bàn chân trái, thêm nhiều nền/xe.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 34,
+              "bbox_xywh": [
+                559,
+                126,
+                244,
+                463
+              ]
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            35
+          ],
+          "issue": "loose_bbox_and_wrong_truncated",
+          "severity": "major",
+          "rule_id": "R-01/R-02",
+          "rationale": "Xe đỗ trái nằm trọn ảnh khoảng x=13..118,y=164..359; box hiện x=0..250,y=200..500 gộp nền và một phần xe giữa, truncated=yes sai.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 35,
+              "bbox_xywh": [
+                13,
+                164,
+                105,
+                195
+              ],
+              "attributes": {
+                "truncated": "no"
+              }
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            31,
+            33
+          ],
+          "issue": "loose_motorcycle_boxes",
+          "severity": "major",
+          "rule_id": "R-01/R-03",
+          "rationale": "Box #31 chứa người bán/xe đẩy chuối/nền thay vì ôm xe giữa; #33 kéo ra mép phải và mép dưới, gộp xe tay ga đỗ nền. Xe tiền cảnh của người áo xanh kết thúc khoảng x=890,y=622, không bị cắt nên truncated=yes chưa phù hợp.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 33,
+              "bbox_xywh": [
+                589,
+                246,
+                301,
+                376
+              ],
+              "attributes": {
+                "truncated": "no"
+              }
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [],
+          "issue": "missing_motorcycle",
+          "severity": "major",
+          "rule_id": "R-03",
+          "rationale": "Có xe tay ga màu xám đỗ phía phải, khoảng x=823..960,y=175..451; chưa có box riêng. Box của xe người áo xanh không được gộp phương tiện này.",
+          "confidence": "high",
+          "proposals": [],
+          "requires_human_confirmation": true
+        }
+      ],
+      "summary_vi": "Box person #32 đang gộp người lớn ngồi xe, trẻ đội mũ đỏ và người bán; cần tách thành các cá thể. Các box xe #31, #33, #35 và người #34 lệch hoặc dư nền; kiểm lại truncated của #33/#35 và bổ sung xe tay ga đỗ phía phải."
+    },
+    {
+      "image": "img_012.jpg",
+      "status": "rework_required",
+      "observations": "Một SUV trái, xe tải nền và thùng pickup ngay trước camera chứa hàng rời.",
+      "findings": [
+        {
+          "annotation_ids": [
+            36
+          ],
+          "issue": "loose_bbox",
+          "severity": "major",
+          "rule_id": "R-01",
+          "rationale": "Xe SUV bạc ở x=0..251,y~283..465; box hiện kéo xuống nền y=610 và bỏ mái y~283..320.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 36,
+              "bbox_xywh": [
+                0,
+                283,
+                251,
+                182
+              ]
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            37
+          ],
+          "issue": "bbox_on_nonobject_region",
+          "severity": "major",
+          "rule_id": "R-01/R-04",
+          "rationale": "Box truck #37 x=390..620,y=70..560 phủ tường/biển và hàng trên pickup, không ôm xe tải nền. Xe tải nền thực khoảng x=326..482,y=207..401.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 37,
+              "bbox_xywh": [
+                326,
+                207,
+                156,
+                194
+              ]
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            38
+          ],
+          "issue": "truncation_and_ego_uncertainty",
+          "severity": "major",
+          "rule_id": "R-02/R-07/R-10",
+          "rationale": "Pickup tiền cảnh ra cả mép phải/dưới nên nếu giữ nhãn thì truncated=yes. Cần xác minh xe chủ theo R-07; không bỏ chỉ do ở gần camera. Không ôm hàng hóa rời để quyết định biên xe.",
+          "confidence": "medium",
+          "proposals": [
+            {
+              "id": 38,
+              "attributes": {
+                "truncated": "yes",
+                "can_review": true
+              }
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [],
+          "issue": "possible_missing_small_car",
+          "severity": "major",
+          "rule_id": "R-06/R-12",
+          "rationale": "Xe nhỏ rõ ở đường giữa, x~302..326,y~296..327 có chiều cao khoảng31px và có thể cần car riêng thay vì bỏ. Cần zoom kiểm lớp/biên.",
+          "confidence": "medium",
+          "proposals": [],
+          "requires_human_confirmation": true
+        }
+      ],
+      "summary_vi": "Box car #36 kéo xuống nền; box truck #37 đặt lên biển/tường và hàng hóa thay vì xe tải nền, cần chuyển về xe thật. Với pickup tiền cảnh #38, cần kiểm tiêu chí xe chủ và ghi truncated=yes nếu giữ nhãn vì xe ra mép ảnh; rà xe con nhỏ ở giữa đường."
+    },
+    {
+      "image": "img_013.jpg",
+      "status": "rework_required",
+      "observations": "Phố đêm; hai người đi bộ cạnh nhau, tượng/đồ trang trí và cây phía phải, xe đường xa bên trái.",
+      "findings": [
+        {
+          "annotation_ids": [
+            39
+          ],
+          "issue": "merged_people",
+          "severity": "major",
+          "rule_id": "R-01/R-03",
+          "rationale": "Box #39 rộng170,cao200 phủ hai người ở x~350..417,y~419..502 và nền/phản chiếu; cần hai person riêng, không ôm phản chiếu dưới đường.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 39,
+              "bbox_xywh": [
+                350,
+                425,
+                31,
+                78
+              ],
+              "attributes": {
+                "occluded_level": "0"
+              }
+            },
+            {
+              "action": "add",
+              "class": "person",
+              "bbox_xywh": [
+                381,
+                419,
+                36,
+                82
+              ],
+              "attributes": {
+                "occluded_level": "0",
+                "truncated": "no"
+              }
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            40
+          ],
+          "issue": "spurious_person",
+          "severity": "major",
+          "rule_id": "R-05",
+          "rationale": "Box #40 x=500..650,y=390..590 phủ tượng xám và cây, không có người thật tương ứng. Không gán người cho tượng/trang trí.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "id": 40,
+              "action": "remove_after_confirmation"
+            }
+          ],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [
+            41,
+            42
+          ],
+          "issue": "unsupported_broad_ignore_regions",
+          "severity": "major",
+          "rule_id": "R-06",
+          "rationale": "Vùng ignore trái/phải bao phần lớn mặt đường/tường/cây. Chỉ dùng ignore cho vật quá nhỏ hoặc cụm thực không tách được. Vùng phải không thấy cụm người/xe rõ; trái có một car trắng cao~30px nên không nên chôn trong vùng ignore rộng.",
+          "confidence": "high",
+          "proposals": [],
+          "requires_human_confirmation": true
+        },
+        {
+          "annotation_ids": [],
+          "issue": "missing_car",
+          "severity": "major",
+          "rule_id": "R-06",
+          "rationale": "Xe trắng đang đi trên đường trái tại x~164..201,y~421..453 có phần nhìn thấy cao hơn20px; hiện không có car riêng.",
+          "confidence": "high",
+          "proposals": [
+            {
+              "action": "add",
+              "class": "car",
+              "bbox_xywh": [
+                164,
+                421,
+                37,
+                32
+              ],
+              "attributes": {
+                "can_review": true
+              }
+            }
+          ],
+          "requires_human_confirmation": true
+        }
+      ],
+      "summary_vi": "Box #39 gộp hai người đi bộ và phần phản chiếu dưới đường, cần tách hai person theo phần cơ thể thật. Box person #40 phủ tượng/cây, cần xác minh để loại; thu hẹp hoặc bỏ các vùng ignore #41–#42 không có căn cứ và rà bổ sung car trắng bên trái."
+    },
+    {
+      "image": "img_014.jpg",
+      "raw_and_overlay_viewed": true,
+      "findings": [
+        {
+          "annotation_ids": [
+            43
+          ],
+          "severity": "major",
+          "type": "box_geometry",
+          "rule": "R-01",
+          "confidence": "high",
+          "rationale": "Box #43 starts at y=160 but the man's hair begins near y=123; left hand extends left of x=280. Existing box cuts head and hand and includes unnecessary background on right.",
+          "proposal": {
+            "bbox": [
+              264,
+              123,
+              222,
+              583
+            ],
+            "occluded_level": "0",
+            "truncated": "no"
+          }
+        },
+        {
+          "annotation_ids": [
+            44
+          ],
+          "severity": "major",
+          "type": "box_geometry",
+          "rule": "R-01,R-10",
+          "confidence": "high",
+          "rationale": "Woman's body occupies approximately x=654..805, y=181..679. Existing box extends to x=850,y=710 and includes pavement/bag area; bottom well below feet.",
+          "proposal": {
+            "bbox": [
+              654,
+              181,
+              151,
+              498
+            ],
+            "occluded_level": "0",
+            "truncated": "no"
+          }
+        },
+        {
+          "annotation_ids": [],
+          "severity": "review",
+          "type": "possible_missing_objects",
+          "rule": "R-03,R-11,R-12",
+          "confidence": "medium",
+          "rationale": "Several motion-blurred riders and motorcycles are visible at the left edge, behind the man around x=478..630,y=180..510, and at the right edge x=839..959,y=196..500. Motion blur alone does not exclude real identifiable targets.",
+          "proposal": {
+            "action": "review blurred riders and motorcycles separately; record can_review where boundaries or identity cannot be resolved",
+            "automatic_box_proposal": null
+          }
+        }
+      ],
+      "summary_vi": "Box người #43 cắt mất đỉnh đầu và bàn tay trái; #44 kéo quá rộng và quá thấp xuống nền đường. Cần ôm lại phần cơ thể nhìn thấy và kiểm riêng những người/xe máy bị nhòe ở hai bên, không loại chỉ vì ảnh mờ."
+    },
+    {
+      "image": "img_017.jpg",
+      "raw_and_overlay_viewed": true,
+      "findings": [],
+      "observation": "Only an equestrian statue and architectural background are visible. The human-shaped statue is not a real person; the horse is also outside the target taxonomy. Current zero annotations is consistent with R-05 for the visible subject. This observation is not a human QC pass.",
+      "summary_vi": "Chủ thể là tượng người cưỡi ngựa, nên không tạo nhãn person hoặc vùng ignore cho tượng theo R-05. Ảnh hiện không có annotation; nhận xét này là hỗ trợ AI, không thay cho phiếu QC của người kiểm."
+    },
+    {
+      "image": "img_018.jpg",
+      "raw_and_overlay_viewed": true,
+      "findings": [
+        {
+          "annotation_ids": [],
+          "severity": "major",
+          "type": "missing_objects",
+          "rule": "R-01,R-05,R-12",
+          "confidence": "high",
+          "rationale": "There are zero annotations. Excluding the printed face on the billboard is correct, but at least five real vehicles remain in the lower image behind a fence: left red car, tall silver SUV/pickup-like vehicle, middle black car, silver car, and right dark car. Fence occlusion does not remove these targets; all are much taller than 20px.",
+          "proposal": {
+            "action": "add separate vehicle boxes after class/extent check; keep printed face excluded",
+            "candidate_regions_xywh": [
+              [
+                0,
+                529,
+                123,
+                148
+              ],
+              [
+                163,
+                498,
+                205,
+                179
+              ],
+              [
+                363,
+                542,
+                245,
+                146
+              ],
+              [
+                565,
+                544,
+                278,
+                140
+              ],
+              [
+                742,
+                539,
+                218,
+                151
+              ]
+            ],
+            "note": "Regions are approximate and must be tightened. Leftmost and rightmost vehicles extend off image; truncated=yes for those. Select occluded_level from actual fence/vehicle occlusion; do not infer from reflections."
+          }
+        }
+      ],
+      "summary_vi": "Ảnh hiện trống nhãn dù còn ít nhất năm xe thật phía dưới, sau hàng rào. Loại chân dung in trên biển quảng cáo là đúng, nhưng cần gán riêng các xe; kiểm cắt mép trái/phải và mức che bởi hàng rào."
+    },
+    {
+      "image": "img_019.jpg",
+      "raw_and_overlay_viewed": true,
+      "findings": [
+        {
+          "annotation_ids": [
+            45
+          ],
+          "severity": "major",
+          "type": "box_geometry_and_attribute",
+          "rule": "R-01",
+          "confidence": "high",
+          "rationale": "Only the real driver's head and a small shoulder area are visible near x=527..599,y=242..310. Box #45 extends to y=470 across the yellow vehicle and guesses hidden body. Most of the driver is hidden by the car.",
+          "proposal": {
+            "bbox": [
+              527,
+              242,
+              72,
+              69
+            ],
+            "occluded_level": "3",
+            "can_review": true,
+            "note": "Occlusion percentage is approximate; reviewer should confirm 2 versus 3. Do not include toy mouse."
+          }
+        },
+        {
+          "annotation_ids": [],
+          "severity": "major",
+          "type": "missing_objects",
+          "rule": "R-03,R-05,R-06,R-12",
+          "confidence": "high",
+          "rationale": "The many real spectators behind the railings are entirely unlabeled. Several foreground adults/children are individually identifiable and substantially taller than 20px; the entire crowd cannot be omitted or automatically treated as ignore.",
+          "proposal": {
+            "action": "separately annotate clearly identifiable spectators; use ignore only for distant inseparable parts; no count inferred until each visible person is checked",
+            "region": "spectators across x=0..959,y=0..400"
+          }
+        },
+        {
+          "annotation_ids": [],
+          "severity": "review",
+          "type": "possible_missing_vehicle",
+          "rule": "R-05,R-09,R-12",
+          "confidence": "medium-high",
+          "rationale": "Yellow themed vehicle has wheels, headlights, a registration plate and a real driver, suggesting a real parade car rather than a static toy. Existing data contains no vehicle box. Mouse figure is a prop and must remain excluded.",
+          "proposal": {
+            "candidate_class": "car",
+            "candidate_region_xywh": [
+              122,
+              203,
+              755,
+              440
+            ],
+            "can_review": true,
+            "question": "Confirm scope of real parade vehicle under R-05 before applying; tighten box to actual vehicle and exclude mouse and driver from vehicle extent where possible."
+          }
+        }
+      ],
+      "summary_vi": "Box người #45 ôm cả thân xe thay vì chỉ phần đầu/vai tài xế nhìn thấy; cần thu box và kiểm lại mức che khuất. Nhiều khán giả rõ, cao hơn 20 px đang bị bỏ sót; con chuột trang trí phải loại. Xe diễu hành có bánh, biển số và người lái cần được nhóm xác nhận cách phân lớp trước khi thêm nhãn."
+    },
+    {
+      "image": "img_021.jpg",
+      "raw_and_overlay_viewed": true,
+      "findings": [
+        {
+          "annotation_ids": [
+            46,
+            47,
+            48,
+            49,
+            50,
+            51
+          ],
+          "severity": "major",
+          "type": "box_geometry_and_identity",
+          "rule": "R-01,R-03,R-10",
+          "confidence": "high",
+          "rationale": "Foreground boxes do not tightly follow distinct riders and motorcycles. #47 mixes the beige-helmet rider near x=157,y=328 with the closer blue-helmet rider near x=141,y=451. #49 and #51 extend far below/aside their intended riders and into other people or pavement. #50 spans a large pavement area to x=900.",
+          "proposal": {
+            "action": "re-identify each existing rider/bike pair; redraw visible extents with separate boxes; never merge persons",
+            "candidate_51_bbox": [
+              577,
+              302,
+              184,
+              313
+            ],
+            "candidate_50_bbox": [
+              530,
+              341,
+              200,
+              302
+            ],
+            "candidate_50_truncated": "yes",
+            "note": "Candidate IDs 50/51 assume they are intended for the nearest striped-shirt rider and that rider's motorcycle. Confirm identity before reassignment."
+          }
+        },
+        {
+          "annotation_ids": [
+            52
+          ],
+          "severity": "major",
+          "type": "ignore_too_broad_and_missing_objects",
+          "rule": "R-06",
+          "confidence": "high",
+          "rationale": "Ignore strip x=0..960,y=230..360 covers many large, individually separable heads/bodies and the left vehicle. This is not solely tiny or inseparable background. Many front/mid-row riders and vehicles are missing outside the six object boxes.",
+          "proposal": {
+            "action": "replace blanket ignore with restricted distant/unsplittable regions after adding individually identifiable people and vehicles; original image needed at full resolution for dense scene"
+          }
+        }
+      ],
+      "summary_vi": "Các cặp box #46–#51 không bám sát từng người và xe; có box trộn hai người hoặc kéo ra vỉa hè. Dải ignore #52 phủ cả nhiều cá thể lớn, tách được nên cần thu hẹp sau khi rà từng người/xe. Đây là ảnh đông đối tượng, cần kiểm lại toàn cảnh ở độ phân giải gốc."
+    },
+    {
+      "image": "img_022.jpg",
+      "raw_and_overlay_viewed": true,
+      "findings": [
+        {
+          "annotation_ids": [
+            53
+          ],
+          "severity": "major",
+          "type": "box_geometry_and_attribute",
+          "rule": "R-01,R-03",
+          "confidence": "high",
+          "rationale": "Motorcycle plus attached sidecar is visible near x=486..694,y=466..626. Box #53 x=500..860,y=360..700 omits the left handlebar yet includes extensive trees, road and ground. No external object visibly occludes the motorcycle/sidecar compound.",
+          "proposal": {
+            "bbox": [
+              486,
+              466,
+              208,
+              160
+            ],
+            "occluded_level": "0",
+            "truncated": "no",
+            "note": "Sidecar belongs to the same motorcycle box. No real person is visible on the parked vehicle."
+          }
+        }
+      ],
+      "summary_vi": "Box motorcycle #53 bao nhiều cây và nền đường, đồng thời cắt tay lái bên trái. Cần thu box theo cả xe máy và sidecar gắn liền, kiểm lại occluded_level; không thấy người thật trên xe."
+    },
+    {
+      "image": "img_023.jpg",
+      "raw_and_overlay_viewed": true,
+      "findings": [
+        {
+          "annotation_ids": [
+            54
+          ],
+          "severity": "major",
+          "type": "box_geometry",
+          "rule": "R-01,R-03",
+          "confidence": "high",
+          "rationale": "Main cyclist's head begins near y=9, not y=30; the body ends around the feet near y=427. Existing box to x=850,y=540 includes most of the cycle and road. The person is fully inside image, so clipping a previous box at image bottom did not make the true person truncated.",
+          "proposal": {
+            "bbox": [
+              619,
+              9,
+              139,
+              419
+            ],
+            "truncated": "no",
+            "occluded_level": "0"
+          }
+        },
+        {
+          "annotation_ids": [
+            55,
+            56
+          ],
+          "severity": "major",
+          "type": "wrong_object_or_geometry",
+          "rule": "R-03,R-08,R-09",
+          "confidence": "high",
+          "rationale": "Foreground three-wheeled vehicle is a pedal cyclo, with pedals and a bicycle drivetrain; it is outside the motorized taxonomy and is not motorcycle. #55 is mostly cycle structure and the main rider's lower body, not a separate person at its current box. #56 covers cycle/road instead of the actual small motorcycle further back at x≈507..550,y≈208..274.",
+          "proposal": {
+            "action": "remove motorcycle label from pedal cyclo and resolve the spurious/duplicated person geometry; review whether IDs 55/56 were intended for the real background rider+motorcycle and redraw those separately",
+            "possible_background_person_region_xywh": [
+              507,
+              158,
+              43,
+              80
+            ],
+            "possible_background_motorcycle_region_xywh": [
+              507,
+              208,
+              44,
+              66
+            ],
+            "can_review": true
+          }
+        },
+        {
+          "annotation_ids": [
+            57
+          ],
+          "severity": "major",
+          "type": "box_geometry_and_attribute",
+          "rule": "R-01,R-02",
+          "confidence": "high",
+          "rationale": "Car is entirely visible near x=36..432,y=151..407. Existing box starts too low and extends to image bottom over empty road. It is not actually cut by image bottom; fence/tree reflections are not external occlusion.",
+          "proposal": {
+            "bbox": [
+              36,
+              151,
+              396,
+              256
+            ],
+            "truncated": "no",
+            "occluded_level": "0"
+          }
+        },
+        {
+          "annotation_ids": [],
+          "severity": "major",
+          "type": "missing_objects",
+          "rule": "R-03,R-06",
+          "confidence": "high",
+          "rationale": "Real people are missing on both sidewalks (e.g. white-shirt person at x≈58..96,y≈141..275; seated blue-shirt person at right x≈914..960,y≈200..310) and identifiable background riders/vehicles remain unlabeled.",
+          "proposal": {
+            "action": "add separate visible people and background motorcycles after checking full image; right-edge seated person is partly cut",
+            "candidate_regions_xywh": [
+              [
+                58,
+                141,
+                38,
+                135
+              ],
+              [
+                914,
+                200,
+                46,
+                111
+              ]
+            ],
+            "note": "Only candidate regions; inspect separately to avoid combining two seated people at right."
+          }
+        }
+      ],
+      "summary_vi": "Box #54 và #57 quá rộng, quá thấp, không ôm đúng người lái xích lô và ô tô. #55 không bao một người riêng ở vị trí hiện tại; #56 cần kiểm lại vì xích lô đạp không thuộc lớp motorcycle. Còn người và xe máy thật ở vỉa hè/nền sau chưa được gán; không tự đặt truncated=yes chỉ vì box cũ từng vượt đáy ảnh."
+    },
+    {
+      "image": "img_025.jpg",
+      "raw_and_overlay_viewed": true,
+      "findings": [
+        {
+          "annotation_ids": [
+            59
+          ],
+          "severity": "major",
+          "type": "box_geometry",
+          "rule": "R-01",
+          "confidence": "high",
+          "rationale": "Nearest standing/walking person occupies x≈452..489,y≈332..433. Existing box x=430..535,y=315..530 contains much empty pavement and background.",
+          "proposal": {
+            "bbox": [
+              452,
+              332,
+              38,
+              102
+            ],
+            "occluded_level": "0",
+            "truncated": "no"
+          }
+        },
+        {
+          "annotation_ids": [
+            60
+          ],
+          "severity": "major",
+          "type": "box_geometry",
+          "rule": "R-01",
+          "confidence": "high",
+          "rationale": "Black-shirt walker is near x=536..563,y=342..414. Existing box x=555..670,y=300..520 largely covers pavement, trees and background, and cuts most of the walker.",
+          "proposal": {
+            "bbox": [
+              536,
+              342,
+              28,
+              73
+            ],
+            "occluded_level": "0",
+            "truncated": "no"
+          }
+        },
+        {
+          "annotation_ids": [
+            58
+          ],
+          "severity": "major",
+          "type": "box_geometry_and_attribute",
+          "rule": "R-01,R-03,R-10",
+          "confidence": "high",
+          "rationale": "Motorcycle with sidecar is on the road around x=807..935,y=372..448. Existing box x=890..960,y=380..620 is predominantly empty pavement and cuts off the motorcycle. Sidecar compound is inside frame, so truncated=yes is unsupported for this object.",
+          "proposal": {
+            "bbox": [
+              807,
+              372,
+              128,
+              76
+            ],
+            "truncated": "no",
+            "can_review": true,
+            "note": "Confirm exact extent of attached sidecar versus loose cargo; add rider separately."
+          }
+        },
+        {
+          "annotation_ids": [
+            61
+          ],
+          "severity": "major",
+          "type": "box_geometry_and_possible_class",
+          "rule": "R-01,R-09,R-12",
+          "confidence": "high for geometry, medium for class",
+          "rationale": "Box x=800..960,y=340..600 contains motorcycle/sidecar and pavement instead of one car. The silver vehicle partly cut at the right edge occupies only about x=886..960,y=340..419 and may have van/pickup body rather than car.",
+          "proposal": {
+            "candidate_bbox": [
+              886,
+              340,
+              74,
+              79
+            ],
+            "truncated": "yes",
+            "can_review": true,
+            "question": "Confirm which vehicle #61 intends to represent and correct class based on body construction."
+          }
+        },
+        {
+          "annotation_ids": [],
+          "severity": "major",
+          "type": "missing_objects",
+          "rule": "R-03,R-06,R-09",
+          "confidence": "high",
+          "rationale": "Green/yellow taxi near x=740..808,y=346..414 is not labeled; motorcycle rider near x=816..855,y=345..421, white-shirt walker x≈491..504,y≈349..393, and several other independently identifiable pedestrians/vehicles are also missing.",
+          "proposal": {
+            "action": "annotate distinct real objects meeting 20px threshold; inspect background for additional targets and use ignore only where separation fails",
+            "candidate_taxi_region_xywh": [
+              740,
+              346,
+              69,
+              69
+            ],
+            "candidate_rider_region_xywh": [
+              815,
+              345,
+              41,
+              78
+            ],
+            "candidate_walker_region_xywh": [
+              490,
+              349,
+              15,
+              45
+            ]
+          }
+        }
+      ],
+      "summary_vi": "Box người #59, #60 lệch xa phần cơ thể nhìn thấy và chứa nhiều nền. #58, #61 đang bao vỉa hè hoặc nhiều vật thay vì một xe; cần xác nhận đúng cá thể rồi sửa biên/lớp. Còn taxi xanh-vàng, người đi bộ và người lái xe có thể nhận diện chưa được gán."
+    },
+    {
+      "image": "img_027.jpg",
+      "raw_and_overlay_viewed": true,
+      "findings": [],
+      "observation": "Pickup-shaped object is a memorial/statue on a plinth in a cemetery, rather than a real road vehicle. Existing zero annotations matches R-05 for the visible subject. No real target is confidently identified in the remaining scene. This observation is not a human QC pass.",
+      "summary_vi": "Chiếc pickup là tượng đài đặt trên bệ trong nghĩa trang, không phải xe thật để gán truck. Ảnh hiện không có annotation phù hợp với việc loại chủ thể theo R-05; chưa xác nhận QC người thật."
+    },
+    {
+      "image": "img_028.jpg",
+      "findings": [
+        {
+          "id": "C028-1",
+          "severity": "high",
+          "annotation_id": 62,
+          "type": "geometry",
+          "rules": [
+            "R-01",
+            "R-10"
+          ],
+          "rationale": "Truck box starts at x90 and y260, omits rear body at x27..89 and bottoms of wheels at y650..703, while including the horse statue above the actual cab. The horse is cargo/fake and must not define truck bounds.",
+          "proposed_bbox": [
+            26,
+            300,
+            906,
+            404
+          ],
+          "confidence": "high for error; medium for exact edges",
+          "proposed_attributes": {
+            "occluded_level": "0",
+            "truncated": "no"
+          }
+        },
+        {
+          "id": "C028-2",
+          "severity": "high",
+          "annotation_id": 63,
+          "type": "geometry",
+          "rules": [
+            "R-01"
+          ],
+          "rationale": "Red SUV is visible approximately x596..893,y334..422 behind the pickup. Current box x700..940,y340..540 omits its visible left half and includes pickup body below it.",
+          "proposed_bbox": [
+            596,
+            334,
+            298,
+            89
+          ],
+          "proposed_attributes": {
+            "occluded_level": "2",
+            "truncated": "no"
+          },
+          "confidence": "high for error; medium for occlusion estimate"
+        }
+      ],
+      "observations": [
+        "Horse statue is not a person or road vehicle and is correctly not given its own target annotation."
+      ],
+      "summary_vi": "Box truck #62 bỏ mất phần đuôi và đáy bánh, đồng thời bao lên tượng ngựa; cần vẽ lại theo kết cấu xe thật. Box car #63 lệch sang phải và xuống dưới so với SUV đỏ phía sau; thu sát phần SUV còn nhìn thấy và kiểm lại mức che khuất."
+    },
+    {
+      "image": "img_029.jpg",
+      "findings": [
+        {
+          "id": "C029-1",
+          "severity": "high",
+          "annotation_id": 64,
+          "type": "geometry",
+          "rules": [
+            "R-01",
+            "R-03"
+          ],
+          "rationale": "Seated motorcyclist's head is near y159 and feet near y376. Current person box starts y245, missing head/torso, extends to image bottom414 over bare road, and includes motorcycle parts.",
+          "proposed_bbox": [
+            401,
+            158,
+            94,
+            219
+          ],
+          "proposed_attributes": {
+            "truncated": "no"
+          },
+          "confidence": "high for geometry error; medium for proposed edges"
+        },
+        {
+          "id": "C029-2",
+          "severity": "high",
+          "annotation_id": 65,
+          "type": "geometry",
+          "rules": [
+            "R-01",
+            "R-03"
+          ],
+          "rationale": "Man on right bicycle has head at y110 and visible body to y394, approximately x600..735. Current box x570..780,y280..414 misses head and almost all torso and includes the bicycle/road.",
+          "proposed_bbox": [
+            600,
+            110,
+            136,
+            285
+          ],
+          "proposed_attributes": {
+            "truncated": "no"
+          },
+          "confidence": "high for error; medium for edges"
+        },
+        {
+          "id": "C029-3",
+          "severity": "high",
+          "annotation_id": 66,
+          "type": "geometry_or_identity",
+          "rules": [
+            "R-01",
+            "R-03",
+            "R-12"
+          ],
+          "rationale": "Current person box x110..300,y260..414 mostly covers pavement. Several distinct people occupy the left background; it cannot be reliably matched to one person solely from this box.",
+          "question": "Rematch annotation66 to its intended individual. Clearly visible candidates: cyclist around x110..148,y181..274; man in black x184..227,y173..297; partly hidden walker x212..247,y183..278. Keep one box per real person, not a group box.",
+          "proposed_bbox": null,
+          "confidence": "high for error; identity uncertain"
+        },
+        {
+          "id": "C029-4",
+          "severity": "high",
+          "annotation_id": 67,
+          "type": "geometry",
+          "rules": [
+            "R-01",
+            "R-03",
+            "R-10"
+          ],
+          "rationale": "Motorcycle mechanical body/wheels occupy approximately x332..574,y228..376. Current box x360..620,y270..414 omits handle/front wheel edge and includes much road. Long metal bars are loose cargo and should not expand motorcycle box.",
+          "proposed_bbox": [
+            332,
+            228,
+            243,
+            149
+          ],
+          "proposed_attributes": {
+            "truncated": "no"
+          },
+          "confidence": "high for error; medium for exact handlebar bounds"
+        },
+        {
+          "id": "C029-5",
+          "severity": "high",
+          "annotation_id": null,
+          "type": "missing_persons",
+          "rules": [
+            "R-03",
+            "R-08"
+          ],
+          "rationale": "At least three independently recognizable people appear at left, while only one left-background person annotation exists. Bicycle vehicles are outside taxonomy, but their riders still require person boxes. Background person around x278..301,y192..253 should also be checked.",
+          "candidate_regions_xyxy": [
+            [
+              109,
+              181,
+              150,
+              275
+            ],
+            [
+              183,
+              172,
+              230,
+              299
+            ],
+            [
+              211,
+              182,
+              250,
+              280
+            ],
+            [
+              276,
+              192,
+              304,
+              255
+            ]
+          ],
+          "confidence": "high for multiple omissions; exact identities require rematching66"
+        }
+      ],
+      "observations": [
+        "All four boxes are numerically inside the 414px image after clipping, yet all retain serious visual geometry errors. None of these main people/motorcycle is truncated merely because the old box reached y414."
+      ],
+      "summary_vi": "Cả bốn box #64–67 còn sai vị trí dù tọa độ đáy đã nằm trong ảnh: box người bỏ đầu/thân và bao nhiều mặt đường, box motorcycle bỏ biên xe. Cần khớp lại #66 với đúng cá thể, tách người đi xe đạp khỏi xe ngoài phạm vi và bổ sung những người thật còn thiếu. Các vật chính kết thúc trước y414 nên không ép box xuống mép ảnh hoặc tự bật truncated."
+    },
+    {
+      "image": "img_031.jpg",
+      "findings": [
+        {
+          "id": "C031-1",
+          "severity": "high",
+          "annotation_ids": [
+            68,
+            69,
+            70,
+            71,
+            72
+          ],
+          "type": "systematic_geometry",
+          "rules": [
+            "R-01",
+            "R-03",
+            "R-11"
+          ],
+          "rationale": "All five annotated boxes extend deep below the actual vehicles into reflected light/road. Reflections do not count as vehicle geometry. Approximate actual object extents are listed separately.",
+          "proposals": [
+            {
+              "annotation_id": 68,
+              "class": "car",
+              "bbox": [
+                266,
+                362,
+                142,
+                109
+              ]
+            },
+            {
+              "annotation_id": 69,
+              "class": "car",
+              "bbox": [
+                426,
+                373,
+                73,
+                63
+              ]
+            },
+            {
+              "annotation_id": 70,
+              "class": "car",
+              "bbox": [
+                521,
+                375,
+                89,
+                73
+              ]
+            },
+            {
+              "annotation_id": 71,
+              "class": "motorcycle",
+              "bbox": [
+                227,
+                390,
+                33,
+                46
+              ]
+            },
+            {
+              "annotation_id": 72,
+              "class": "bus",
+              "bbox": [
+                562,
+                312,
+                115,
+                121
+              ]
+            }
+          ],
+          "confidence": "high for excessive lower bounds; medium for exact pixels"
+        },
+        {
+          "id": "C031-2",
+          "severity": "high",
+          "annotation_id": null,
+          "type": "missing_objects",
+          "rules": [
+            "R-03",
+            "R-06"
+          ],
+          "rationale": "Foreground motorcycle and rider near x54..108,y379..458 are omitted. Rider of annotated motorcycle71 near x235..255,y368..411 is missing. Pedestrians and other riders larger than20px are visible along storefronts/traffic; do not label their light reflections.",
+          "candidate_regions_xyxy": [
+            [
+              53,
+              379,
+              109,
+              458
+            ],
+            [
+              234,
+              366,
+              258,
+              414
+            ],
+            [
+              182,
+              363,
+              213,
+              428
+            ],
+            [
+              168,
+              365,
+              189,
+              426
+            ],
+            [
+              386,
+              365,
+              404,
+              412
+            ],
+            [
+              411,
+              365,
+              433,
+              420
+            ]
+          ],
+          "question": "Inspect nighttime background at zoom to separate people/vehicles and use ignore only for genuinely too-small or inseparable targets.",
+          "confidence": "high for foreground omissions; background targets need zoom"
+        }
+      ],
+      "observations": [
+        "No main vehicle reaches the frame boundary; current truncated=no is not the main problem."
+      ],
+      "summary_vi": "Các box #68–72 đều kéo xuống vùng đường và phản sáng phía dưới xe; cần thu sát phần thân, bánh và biên xe thực. Thiếu motorcycle/người ở tiền cảnh trái cùng một số người đi đường và người lái; phóng to ảnh tối để tách cá thể trước khi thêm box."
+    },
+    {
+      "image": "img_033.jpg",
+      "findings": [],
+      "observations": [
+        "Raw image and zero-box overlay inspected. Visible mannequin and printed fashion figure are excluded under R-05; no additional real person/vehicle was confidently identified. This observation is not a formal human clean-QC row."
+      ],
+      "summary_vi": "Đã xem ảnh gốc và bản không có box: mannequin và hình thời trang in không thuộc person theo R-05. Chưa xác định thêm người hoặc phương tiện thật cần gán; đây là quan sát có AI hỗ trợ, không phải phiếu QC sạch của người review."
+    },
+    {
+      "image": "img_034.jpg",
+      "findings": [
+        {
+          "id": "C034-1",
+          "severity": "high",
+          "annotation_id": 73,
+          "type": "geometry",
+          "rules": [
+            "R-01"
+          ],
+          "rationale": "Foreground walking man's hand extends to x359 and feet end near y439. Current box x390..570,y150..540 cuts off left arm/hand and includes101px of road below feet.",
+          "proposed_bbox": [
+            359,
+            163,
+            147,
+            277
+          ],
+          "proposed_attributes": {
+            "occluded_level": "0",
+            "truncated": "no"
+          },
+          "confidence": "high"
+        },
+        {
+          "id": "C034-2",
+          "severity": "high",
+          "annotation_id": 74,
+          "type": "geometry",
+          "rules": [
+            "R-01"
+          ],
+          "rationale": "Black sedan occupies approximately x357..594,y228..313. Current box y290..520 misses roof/windows and mostly labels road.",
+          "proposed_bbox": [
+            356,
+            228,
+            240,
+            86
+          ],
+          "proposed_attributes": {
+            "truncated": "no"
+          },
+          "confidence": "high for error; medium for rightmost edge"
+        },
+        {
+          "id": "C034-3",
+          "severity": "high",
+          "annotation_ids": [
+            75,
+            78
+          ],
+          "type": "geometry_or_identity",
+          "rules": [
+            "R-01",
+            "R-03",
+            "R-12"
+          ],
+          "rationale": "Both left-side boxes y290..520 or500 lie on empty road. Small rider/motorcycle pair in far-left lane is near x47..98,y227..293, with other pairs near x150..200 and251..310. Existing IDs must be matched to intended individuals before editing.",
+          "conditional_proposals": [
+            {
+              "annotation_id": 75,
+              "if_identity": "far-left motorcycle",
+              "bbox": [
+                46,
+                248,
+                53,
+                46
+              ]
+            },
+            {
+              "annotation_id": 78,
+              "if_identity": "its rider",
+              "bbox": [
+                59,
+                227,
+                34,
+                49
+              ]
+            }
+          ],
+          "question": "Confirm intended object pair; do not preserve the old road location.",
+          "confidence": "high error; medium-low identity"
+        },
+        {
+          "id": "C034-4",
+          "severity": "high",
+          "annotation_ids": [
+            76,
+            79
+          ],
+          "type": "geometry_or_identity",
+          "rules": [
+            "R-01",
+            "R-03",
+            "R-12"
+          ],
+          "rationale": "Current boxes x680..840,y250..530 andx680..820,y250..500 cover largely empty road. At least two distinct rider/motorcycle pairs lie to their right aroundx777..871,y224..340. Rematch by actual instance, not by box center.",
+          "candidate_regions_xyxy": [
+            [
+              775,
+              230,
+              808,
+              320
+            ],
+            [
+              821,
+              221,
+              873,
+              340
+            ]
+          ],
+          "confidence": "high error; ambiguous matching"
+        },
+        {
+          "id": "C034-5",
+          "severity": "high",
+          "annotation_id": 77,
+          "type": "geometry_and_missing_rider",
+          "rules": [
+            "R-01",
+            "R-02",
+            "R-03"
+          ],
+          "rationale": "Nearest right motorcycle and its large helmeted rider must be separate. Current motorcycle box x800..960,y250..540 includes too much blank road/other rider and parts of this rider. Visible nearest person spans roughlyx864..960,y158..467 and currently lacks an unambiguous matching person box.",
+          "candidate_missing_person_bbox": [
+            863,
+            158,
+            97,
+            310
+          ],
+          "proposed_attributes_for_missing_person": {
+            "truncated": "yes"
+          },
+          "question": "Tighten motorcycle to mechanical parts including attached mirrors, and add/rematch foreground rider separately. Verify person right-edge truncation on raw image.",
+          "confidence": "high for missing/rematching rider; mechanical exact extent uncertain"
+        },
+        {
+          "id": "C034-6",
+          "severity": "high",
+          "annotation_id": null,
+          "type": "missing_objects",
+          "rules": [
+            "R-03",
+            "R-06"
+          ],
+          "rationale": "Several distinguishable motorbike riders and vehicles >=20px are omitted across left/middle/right background. Existing seven labels cannot account for all visible instances.",
+          "candidate_regions_xyxy": [
+            [
+              149,
+              231,
+              201,
+              291
+            ],
+            [
+              250,
+              230,
+              311,
+              292
+            ],
+            [
+              594,
+              225,
+              638,
+              303
+            ],
+            [
+              644,
+              228,
+              679,
+              318
+            ],
+            [
+              772,
+              228,
+              810,
+              322
+            ],
+            [
+              822,
+              220,
+              874,
+              340
+            ]
+          ],
+          "confidence": "high; per-instance boxes require zoom"
+        }
+      ],
+      "observations": [
+        "Clipping pedestrian73 to540 fixed validity only; actual feet end around439, so truncated remains no and bottom should not be forced to image edge."
+      ],
+      "summary_vi": "Người #73 có bàn chân kết thúc gần y439, còn box hiện xuống y540 và cắt mất tay trái; car #74 cũng nằm thấp hơn xe thật. Các cặp #75/#78 và #76/#79 phần lớn phủ đường trống, cần khớp lại đúng người và motorcycle; kiểm riêng motorcycle #77 với người tiền cảnh sát mép phải. Còn nhiều cặp người/xe đủ lớn chưa được gán."
+    },
+    {
+      "image": "img_036.jpg",
+      "findings": [
+        {
+          "id": "C036-1",
+          "severity": "high",
+          "annotation_id": 81,
+          "type": "geometry_and_attribute",
+          "rules": [
+            "R-01",
+            "R-02",
+            "R-10"
+          ],
+          "rationale": "Truck is fully contained. Current x240 start misses rear cargo body/rack at x67..239, y50 misses rack top near30, and bottom640 cuts tire ending near698. Frame has margins around truck, so truncated=yes is unsupported.",
+          "proposed_bbox": [
+            67,
+            30,
+            816,
+            669
+          ],
+          "proposed_attributes": {
+            "occluded_level": "0",
+            "truncated": "no"
+          },
+          "confidence": "high for error; medium for exact extrema"
+        },
+        {
+          "id": "C036-2",
+          "severity": "high",
+          "annotation_ids": [
+            80,
+            82
+          ],
+          "type": "ignore_misuse_or_geometry",
+          "rules": [
+            "R-01",
+            "R-06"
+          ],
+          "rationale": "Ignore82 x0..230,y220..520 includes a broad sidewalk patch and part of the clearly identifiable truck, while motorcycles lie higher (roughlyy170..329). Ignore80 y200..520 likewise includes much road below right parked motorcycles. Some parked motorcycles are individually separable and much taller than20px.",
+          "question": "Split identifiable parked motorcycles into individual boxes. Keep any genuinely inseparable remainder in a tight ignore region that does not hide truck/clear targets. Inspect both rows at zoom before replacing ignore regions.",
+          "confidence": "high for excess background/overlap; instance split needs detailed review"
+        },
+        {
+          "id": "C036-3",
+          "severity": "medium",
+          "annotation_id": null,
+          "type": "possible_missing_person",
+          "rules": [
+            "R-03",
+            "R-12"
+          ],
+          "rationale": "Small person is visible behind truck nearx725..751,y150..194; main truck obscures lower body.",
+          "candidate_regions_xyxy": [
+            [
+              724,
+              149,
+              752,
+              196
+            ]
+          ],
+          "question": "Confirm recognizable real person and visible height>=20px, then annotate visible parts; do not infer body behind truck.",
+          "confidence": "medium"
+        }
+      ],
+      "summary_vi": "Truck #81 thiếu phần sau, nóc khung và đáy bánh; xe nằm trọn ảnh nên cần đổi truncated từ yes sang no sau khi đối chiếu biên. Hai vùng ignore #80/#82 bao nhiều mặt đường và phủ cả phần xe rõ; tách motorcycle nhận diện được, chỉ giữ ignore cho phần thực sự không tách được. Kiểm thêm người bị truck che ở phía sau."
+    },
+    {
+      "image": "img_037.jpg",
+      "findings": [
+        {
+          "id": "C037-1",
+          "severity": "high",
+          "annotation_id": 83,
+          "type": "geometry",
+          "rules": [
+            "R-01"
+          ],
+          "rationale": "Person's head is aroundy297 and feet around407. Current box y340..590 misses head/upper torso and extends183px onto empty road.",
+          "proposed_bbox": [
+            28,
+            296,
+            50,
+            112
+          ],
+          "proposed_attributes": {
+            "occluded_level": "0",
+            "truncated": "no"
+          },
+          "confidence": "high"
+        },
+        {
+          "id": "C037-2",
+          "severity": "high",
+          "annotation_id": 84,
+          "type": "geometry",
+          "rules": [
+            "R-01",
+            "R-09",
+            "R-10"
+          ],
+          "rationale": "Pickup/camper is correctly truck under capped-pickup rule, but box startsx280,y180, omitting front bumper/wheel atx220 and roof rack/camper top near128. Current right/bottom edges770/560 include background/road beyond actual vehicle ends near724/496.",
+          "proposed_bbox": [
+            219,
+            128,
+            506,
+            369
+          ],
+          "proposed_attributes": {
+            "occluded_level": "0",
+            "truncated": "no"
+          },
+          "confidence": "high for error; medium for rack/hitch extrema"
+        },
+        {
+          "id": "C037-3",
+          "severity": "high",
+          "annotation_id": 85,
+          "type": "geometry_and_attribute",
+          "rules": [
+            "R-01",
+            "R-02"
+          ],
+          "rationale": "Left bus is cut by image's left edge, roof starts around218 and rear/body ends near388. Current y245..620 misses roof and includes large road area; truncated should be yes for left edge.",
+          "proposed_bbox": [
+            0,
+            218,
+            238,
+            172
+          ],
+          "proposed_attributes": {
+            "truncated": "yes"
+          },
+          "confidence": "high"
+        },
+        {
+          "id": "C037-4",
+          "severity": "high",
+          "annotation_id": null,
+          "type": "missing_vehicle",
+          "rules": [
+            "R-01",
+            "R-03"
+          ],
+          "rationale": "Second green/white bus is visible behind pickup aroundx711..764,y232..354, distinguishable and taller than20px, but no separate bus annotation exists.",
+          "candidate_bbox": [
+            711,
+            232,
+            54,
+            123
+          ],
+          "question": "Box visible parts only and set occlusion based on pickup overlap; do not infer hidden bus body.",
+          "confidence": "high for omission; medium for exact extent"
+        }
+      ],
+      "summary_vi": "Person #83, truck #84 và bus #85 đều sai biên, bỏ phần trên và bao nhiều đường phía dưới. Truck có kết cấu pickup gắn khoang nên giữ lớp truck; bus trái bị cắt ở mép ảnh nên cần truncated=yes. Có bus thứ hai phía sau pickup chưa có box riêng, cần gán phần còn nhìn thấy."
+    },
+    {
+      "image": "img_038.jpg",
+      "findings": [],
+      "observations": [
+        "Raw image and zero-box overlay inspected. Displayed cars, figures and wheelchair are toys/models in a cabinet. R-05 supports excluding these representations; no additional real target was confidently identified. This is not a formal human clean-QC row."
+      ],
+      "summary_vi": "Đã xem ảnh gốc và bản không có box: các xe, nhân vật và xe lăn trong tủ đều là đồ chơi/mô hình, được loại theo R-05. Chưa xác định mục tiêu thật cần thêm; không dùng quan sát này thay cho QC độc lập của người review."
+    },
+    {
+      "image": "img_040.jpg",
+      "findings": [
+        {
+          "id": "C040-1",
+          "severity": "high",
+          "annotation_id": 86,
+          "type": "geometry_and_attribute",
+          "rules": [
+            "R-01",
+            "R-02",
+            "R-03"
+          ],
+          "rationale": "Helmeted foreground rider spans approximatelyx460..822,y102..640. Current box x530..820,y170..640 cuts off helmet top and hand/arm at lower-left. Person continues below image, so truncated=no is wrong.",
+          "proposed_bbox": [
+            460,
+            102,
+            363,
+            538
+          ],
+          "proposed_attributes": {
+            "truncated": "yes"
+          },
+          "question": "Review occluded_level independently; frame truncation is not occlusion.",
+          "confidence": "high for error; medium for leftmost hand pixel"
+        },
+        {
+          "id": "C040-2",
+          "severity": "high",
+          "annotation_id": 87,
+          "type": "geometry",
+          "rules": [
+            "R-01",
+            "R-02",
+            "R-10"
+          ],
+          "rationale": "Taxi includes roof/sign and side/body roughlyx16..960,y144..640; current box startsy290, omitting roof/sign/windows and left body corner. truncated=yes is plausible for right/bottom image crop.",
+          "proposed_bbox": [
+            16,
+            144,
+            944,
+            496
+          ],
+          "proposed_attributes": {
+            "truncated": "yes"
+          },
+          "confidence": "high for error; medium for exact sign top"
+        },
+        {
+          "id": "C040-3",
+          "severity": "high",
+          "annotation_id": 88,
+          "type": "geometry",
+          "rules": [
+            "R-01"
+          ],
+          "rationale": "Background gray SUV spans aboutx185..423,y79..261, partly occluded by tuk-tuk. Current box startsy120 and extends420, missing roof while including foreground tuk-tuk/road.",
+          "proposed_bbox": [
+            185,
+            79,
+            239,
+            183
+          ],
+          "confidence": "high for error; medium for bbox"
+        },
+        {
+          "id": "C040-4",
+          "severity": "high",
+          "annotation_id": 89,
+          "type": "geometry_and_attribute",
+          "rules": [
+            "R-01",
+            "R-02"
+          ],
+          "rationale": "Orange bus visible at top spans approximatelyx93..470,y0..158 behind SUV; current box to430 covers large road/other vehicles. Top of bus is cut by frame, so truncated=no is unsupported.",
+          "proposed_bbox": [
+            92,
+            0,
+            379,
+            159
+          ],
+          "proposed_attributes": {
+            "truncated": "yes"
+          },
+          "question": "Occlusion is nonzero because foreground SUV hides bus body; assess level from visible structure rather than retaining0.",
+          "confidence": "high for geometry/truncation error; occlusion level uncertain"
+        },
+        {
+          "id": "C040-5",
+          "severity": "high",
+          "annotation_id": 90,
+          "type": "geometry",
+          "rules": [
+            "R-01",
+            "R-03"
+          ],
+          "rationale": "Central tuk-tuk has canopy top near124 and body visible down to410, approximatelyx301..590. Current x240 start adds road and y170 misses canopy.",
+          "proposed_bbox": [
+            301,
+            124,
+            290,
+            288
+          ],
+          "confidence": "high for error; medium for vehicle extrema"
+        },
+        {
+          "id": "C040-6",
+          "severity": "high",
+          "annotation_id": null,
+          "type": "missing_objects",
+          "rules": [
+            "R-03",
+            "R-06",
+            "R-12"
+          ],
+          "rationale": "Another tuk-tuk is visible in left background aroundx68..189,y101..237. A real person is visible through central tuk-tuk nearx456..511,y155..238, requiring separate assessment; person printed on taxi placards must remain excluded. Far-left red vehicle partially cut atx0..75,y112..204 also warrants class review.",
+          "candidate_regions_xyxy": [
+            [
+              68,
+              101,
+              190,
+              238
+            ],
+            [
+              455,
+              154,
+              514,
+              241
+            ],
+            [
+              0,
+              111,
+              76,
+              205
+            ]
+          ],
+          "question": "Separate true rider/passenger from printed advertising and foreground reflection; add only confidently real targets. Check for omitted foreground motorcycle mechanical parts/mirrors at bottom; current person is not a substitute vehicle annotation.",
+          "confidence": "high for background tuk-tuk omission; medium for person/class details"
+        }
+      ],
+      "summary_vi": "Person #86 thiếu đỉnh mũ và tay, đồng thời bị cắt ở đáy ảnh nên cần kiểm lại truncated=yes; car #87 bỏ nóc và biển taxi. Các box SUV #88, bus #89 và tuk_tuk #90 đều cần thu lại theo biên thực; bus bị cắt ở mép trên và không thể giữ mức che khuất 0. Kiểm thêm tuk-tuk phía trái, người thật qua kính và phần motorcycle tiền cảnh; tránh gán hình người in trên quảng cáo."
+    }
+  ]
+}

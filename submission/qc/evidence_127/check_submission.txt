@@ -1,0 +1,6 @@
+LỖI: Thiếu hoặc trống: submission\individual_notes\106.md.
+LỖI: Thiếu hoặc trống: submission\labels\157.json.
+LỖI: Thiếu hoặc trống: submission\individual_notes\157.md.
+LỖI: Danh sách file nhãn phải khớp mã thành viên trong assignment.csv.
+LỖI: Chưa đủ bằng chứng bàn giao: [Errno 2] No such file or directory: '.\\submission\\qc\\QC_REPORT.md'.
+Tổng kết: 5 lỗi. Reviewer vẫn cần kiểm nội dung và mở thử gói bàn giao.

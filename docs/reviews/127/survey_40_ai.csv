@@ -1,0 +1,41 @@
+﻿image,scope,observation,reviewer
+img_001.jpg,overview_and_detailed_label_review,Pickup và nhiều người tại quán; tách từng người và phần xe thật.,AI_assisted_after_export
+img_002.jpg,overview_and_detailed_label_review,Xe chuyên chở nhiều ô tô; cần tách xe chở với 8 xe được chở.,AI_assisted_after_export
+img_003.jpg,overview_only_not_annotated_by_127,"Người bán hàng, xe đạp và xe máy; người không phụ thuộc phạm vi phương tiện.",AI_assisted_after_export
+img_004.jpg,overview_and_detailed_label_review,Hai tuk-tuk; kiểm người lái nhìn thấy qua khoang xe.,AI_assisted_after_export
+img_005.jpg,overview_and_detailed_label_review,"Nhiều người đội mũ trên xe máy, van phía sau; tránh gộp cá thể.",AI_assisted_after_export
+img_006.jpg,overview_only_not_annotated_by_127,Giao thông hỗn hợp xe máy và xe đạp; người đi xe đạp vẫn xét riêng.,AI_assisted_after_export
+img_007.jpg,overview_and_detailed_label_review,"Xe tải và pickup trong xưởng; lớp phụ thuộc kết cấu, không theo kích thước.",AI_assisted_after_export
+img_008.jpg,overview_and_detailed_label_review,Xe máy đỗ và người trong phố đêm; không gán mũ/vùng phụ kiện thành người.,AI_assisted_after_export
+img_009.jpg,overview_only_not_annotated_by_127,Xe buýt trên đường; bus cần lớp riêng theo taxonomy v1.0.,AI_assisted_after_export
+img_010.jpg,overview_and_detailed_label_review,"Người bán hàng, trẻ em và người trên xe; cần tách cá thể và xe.",AI_assisted_after_export
+img_011.jpg,overview_only_not_annotated_by_127,Tượng tiền cảnh và người thật ở nền; loại tượng không loại toàn cảnh.,AI_assisted_after_export
+img_012.jpg,overview_and_detailed_label_review,"Pickup chở thùng hàng, xe con và xe tải; không kéo biên theo hàng rời.",AI_assisted_after_export
+img_013.jpg,overview_and_detailed_label_review,"Cảnh đêm, người và tượng trang trí; phân biệt vật thật/biểu diễn.",AI_assisted_after_export
+img_014.jpg,overview_and_detailed_label_review,Người đi bộ rõ và xe/người chuyển động nhòe; nhòe không mặc định loại.,AI_assisted_after_export
+img_015.jpg,overview_only_not_annotated_by_127,Ô tô và vệt chuyển động; không ôm toàn vệt mờ vào vật.,AI_assisted_after_export
+img_016.jpg,overview_only_not_annotated_by_127,"Xe ba bánh, scooter, van và người; lớp và người được xét riêng.",AI_assisted_after_export
+img_017.jpg,overview_and_detailed_label_review,Tượng người cưỡi ngựa; không gán person cho tượng.,AI_assisted_after_export
+img_018.jpg,overview_and_detailed_label_review,"Hình in người trên biển, nhiều xe thật sau rào; phân biệt từng vật.",AI_assisted_after_export
+img_019.jpg,overview_and_detailed_label_review,"Xe diễu hành, nhân vật trang trí và người thật; ca cần xác nhận phạm vi.",AI_assisted_after_export
+img_020.jpg,overview_only_not_annotated_by_127,Cảnh qua gương chiếu hậu; không đếm thêm vật chỉ trong phản chiếu.,AI_assisted_after_export
+img_021.jpg,overview_and_detailed_label_review,Đám đông người/xe; cá thể rõ tiền cảnh không được phủ ignore rộng.,AI_assisted_after_export
+img_022.jpg,overview_and_detailed_label_review,Xe máy có sidecar; bộ phận gắn liền cùng box xe.,AI_assisted_after_export
+img_023.jpg,overview_and_detailed_label_review,"Xích lô đạp, người, ô tô, xe máy nền; xe đạp không phải motorcycle.",AI_assisted_after_export
+img_024.jpg,overview_only_not_annotated_by_127,Xe trưng bày có vật giống xe đặt trên nóc; cần phân biệt xe thật/thân vỏ.,AI_assisted_after_export
+img_025.jpg,overview_and_detailed_label_review,"Người trên lối đi, phương tiện trên đường; kiểm đúng vị trí, kích thước nhỏ.",AI_assisted_after_export
+img_026.jpg,overview_only_not_annotated_by_127,"Hai người ngồi trên một xe máy; mỗi người riêng, xe riêng.",AI_assisted_after_export
+img_027.jpg,overview_and_detailed_label_review,Vật hình pickup trên bệ tưởng niệm; không gán truck cho vật giả.,AI_assisted_after_export
+img_028.jpg,overview_and_detailed_label_review,Pickup thật chở tượng ngựa; không kéo biên xe theo tượng/hàng.,AI_assisted_after_export
+img_029.jpg,overview_and_detailed_label_review,"Xe máy, người đi xe đạp, người đi bộ và thanh hàng rời; tách phạm vi.",AI_assisted_after_export
+img_030.jpg,overview_only_not_annotated_by_127,"Bãi xe máy dày đặc; tách cá thể rõ, ignore chỉ phần không tách được.",AI_assisted_after_export
+img_031.jpg,overview_and_detailed_label_review,Xe trên đường đêm và phản sáng mặt đường; không ôm phản sáng vào xe.,AI_assisted_after_export
+img_032.jpg,overview_only_not_annotated_by_127,"Đám đông đứng chờ, xe ở mép ảnh; xét từng người khi đủ rõ.",AI_assisted_after_export
+img_033.jpg,overview_and_detailed_label_review,Ma-nơ-canh trong tủ; không gán person cho vật giả.,AI_assisted_after_export
+img_034.jpg,overview_and_detailed_label_review,Người qua đường và nhiều xe máy; biên chân người khác đáy ảnh.,AI_assisted_after_export
+img_035.jpg,overview_only_not_annotated_by_127,Tuk-tuk chở hàng nhô cao; không gộp hàng rời vào biên xe.,AI_assisted_after_export
+img_036.jpg,overview_and_detailed_label_review,Xe tải nhỏ và xe máy đỗ; xe đủ trong khung không tự truncated.,AI_assisted_after_export
+img_037.jpg,overview_and_detailed_label_review,"Pickup có nắp thùng, xe buýt, người; pickup vẫn truck khi rõ kết cấu.",AI_assisted_after_export
+img_038.jpg,overview_and_detailed_label_review,Ô tô đồ chơi trong tủ; không tạo car hoặc ignore cho đồ chơi.,AI_assisted_after_export
+img_039.jpg,overview_only_not_annotated_by_127,Đường phố với người/xe đạp/xe máy; vật nhỏ cần phóng to trước khi chọn ignore.,AI_assisted_after_export
+img_040.jpg,overview_and_detailed_label_review,"Người đội mũ, phần xe máy, taxi và xe nền; tách người với xe và kiểm cắt mép.",AI_assisted_after_export

@@ -68,3 +68,11 @@ Sau khi phân công, tạo Task riêng từ `work/127/images/`. Hướng dẫn C
 ```
 
 Các pha IAA, calibration và QC tiếp theo làm theo [GUIDE.md](../GUIDE.md). Ghi kết quả vào `TEAM.md` và báo cáo sau khi có bằng chứng thực tế.
+
+## Cập nhật sau bản xuất 127 mới
+
+- COCO: đã nhập đủ 27 ảnh/90 annotation; validator đạt.
+- Rà ảnh với hỗ trợ AI: đã đủ 27/27 ảnh, có lỗi cần sửa ở 23 ảnh. Mở [báo cáo và checklist](../submission/qc/review_127_ai.md) để làm tiếp.
+- Ghi chú cá nhân đã được bổ sung bằng quan sát của lượt rà sau xuất; bản guideline cá nhân ban đầu được giữ nguyên, có phụ lục đối chiếu ảnh.
+- Các ô xác nhận khảo sát Pha 1 ở trên dành cho việc thành viên thực sự đã làm; không đánh dấu thay từ lượt rà AI.
+- Chưa có đủ đầu vào để đóng bài nhóm: thiếu nhãn 157, ghi chú 106/157 và xác nhận guideline, IAA/calibration và QC cuối.

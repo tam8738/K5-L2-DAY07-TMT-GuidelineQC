@@ -1,0 +1,3 @@
+submission\labels\106.json: hợp lệ về cấu trúc, 26 ảnh.
+submission\labels\127.json: hợp lệ về cấu trúc, 27 ảnh.
+Reviewer kiểm box có đúng vật, đúng lớp, ôm sát và có bỏ sót hay không.

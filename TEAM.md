@@ -22,3 +22,17 @@
 - Vòng QC và số ảnh đã duyệt / cả lô:
 - Tỉ lệ lỗi: … % theo ảnh (…/…), … % theo đối tượng (…/…)
 - **Quyết định** (Release / Hold / Rework) và lý do một dòng:
+
+## Tiếp nhận nhãn 127
+
+- Đã nhận bản xuất mới `127.zip` và cập nhật `submission/labels/127.json`: 27 ảnh, 90 nhãn; kiểm tra cấu trúc đạt.
+- Sau đồng bộ GitHub, có 53/80 lượt gán theo phân công: 106 (26 ảnh), 127 (27 ảnh). Còn thiếu nhãn độc lập 157 (27 ảnh).
+- Đã thử IAA; công cụ dừng vì thiếu lượt gán. Chưa có số đo IAA, calibration hoặc quyết định Release.
+- Bằng chứng và lệnh tiếp theo: [tiếp nhận 127](submission/qc/import_127.md).
+
+## Rà soát bổ sung 127
+
+- Đã rà AI ảnh gốc và overlay cho đủ 27 ảnh của 127; 23 ảnh có phát hiện cần sửa, tổng 79 phát hiện/nhóm vấn đề. Đây không phải số đo QC người thật.
+- Bản COCO 127 hợp lệ về cấu trúc nhưng chưa đạt chất lượng bàn giao qua rà ảnh. Giữ nguồn độc lập và log theo SHA-256 trong [báo cáo 127](submission/qc/review_127_ai.md).
+- Đã bổ sung [ghi chú 127](submission/individual_notes/127.md) và [phụ lục guideline](submission/guidelines/individual/guideline_127_review.md) bằng quan sát thực tế của lượt rà AI; không ghi thay trải nghiệm hoặc xác nhận của thành viên.
+- Chưa có xác nhận khóa v1.0; xem [bảng còn chờ](submission/qc/guideline_confirmation_pending.md). Còn thiếu nhãn 157 và ghi chú 106/157, chưa có IAA/calibration/QC cuối.
