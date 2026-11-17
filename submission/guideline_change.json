@@ -1,4 +1,4 @@
 {
   "kind": "editorial",
-  "summary": "Mở hồ sơ calibration; chưa chốt thay đổi ngữ nghĩa guideline."
+  "summary": "Giữ nguyên bộ 8 lớp và 12 quy tắc v1.0; bổ sung làm rõ cách áp dụng R-01 (biên box), R-03 (tách box person/motorcycle), R-06 (không lạm dụng ignore_region cho vật rõ >= 20 px) và R-11 (biên xe bị nhòe chuyển động ở img_015.jpg) sau phiên calibration."
 }
