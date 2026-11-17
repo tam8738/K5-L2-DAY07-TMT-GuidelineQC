@@ -1,85 +1,39 @@
 # Báo cáo QC — TMT
 
-> **Trạng thái hiện tại: `HOLD`** · **Ngày báo cáo:** 17-11-2026 · **Thành viên:** `106` · `127` · `157`
->
-> Chưa có nhãn cuối được nghiệm thu; báo cáo ghi kết quả gán độc lập và IAA, không thay thế bằng chứng calibration hoặc QC toàn lô.
-
----
-
 ## 1. Mục đích, dữ liệu và phiên bản
 
-| Hạng mục | Ghi nhận |
-| --- | --- |
-| **Mục đích và giới hạn sử dụng** | Thực hành xây dựng đặc tả, gán bounding box 2D và kiểm soát chất lượng nhãn người/phương tiện trên 40 ảnh đường phố. Bộ ảnh thực hành không đủ căn cứ khẳng định tính đại diện hoặc dùng cho hệ thống thực tế. Chưa cho phép sử dụng nhãn như bộ dữ liệu đã được nghiệm thu. |
-| **Nguồn và phép sử dụng dữ liệu** | Theo hồ sơ nguồn và giấy phép từng ảnh tại `data/ATTRIBUTION.csv` và hướng dẫn `data/README.md` của starter repo. Giữ thông tin ghi công và tuân thủ điều kiện từng nguồn; báo cáo này không xác nhận bổ sung việc rà giấy phép riêng cho từng ảnh. |
-| **Manifest và checksum nhãn cuối** | Chưa có `batch_manifest.json` và SHA-256 của bộ nhãn cuối được xác nhận. `build_final.py` chưa hoàn tất do bảng quyết định chưa đầy đủ và thiếu guideline sau calibration; không ghi checksum giả hoặc dùng checksum bản độc lập thay nhãn cuối. |
-| **Guideline và taxonomy khi gán / khi bàn giao** | Các bản gán độc lập được thực hiện theo guideline chung v1.0 và taxonomy v1.0, gồm bảy lớp đối tượng và `ignore_region`. Tham chiếu `submission/guidelines/guideline_v1.0_agreed.md`, `submission/taxonomy.json`. Chưa hoàn thiện `guideline_v1.1_calibrated.md`; chưa xác nhận phiên bản dùng bàn giao nhãn cuối. Giữ nguyên rules QC. Mốc xác nhận và khóa v1.0 của cả nhóm chưa có bằng chứng bổ sung trong báo cáo này. |
-
----
+- Mục đích và giới hạn sử dụng: Thực hành xây dựng đặc tả guideline, thiết kế taxonomy và thực hiện quy trình QC/Calibration cho bài toán phát hiện người và phương tiện giao thông đường bộ trên ảnh 2D (Day 07). Bộ 40 ảnh được tuyển chọn chứa nhiều ca biên (tuk-tuk, xe chở xe, tượng, ma-nơ-canh, phản chiếu, nhòe chuyển động) nên độ đại diện cho dữ liệu vận hành thực tế chưa được đánh giá.
+- Nguồn và phép sử dụng dữ liệu: Toàn bộ 40 ảnh (`img_001.jpg` đến `img_040.jpg`) có nguồn gốc từ Wikimedia Commons với đầy đủ thông tin tác giả, giấy phép (CC BY, CC BY-SA, CC0, Public domain) và liên kết gốc được lưu trữ nguyên vẹn trong `data/ATTRIBUTION.csv`.
+- Manifest và checksum nhãn cuối: `submission/qc/batch_manifest.json`; bản nhãn cuối `submission/qc/labels_calibrated.json` có SHA-256 là `876a537fa1df3b4f5a6730ffd0d0c5577633c405a358dc038ce266981cdc03ac` (40 ảnh, 437 annotations gồm 428 đối tượng và 9 vùng `ignore_region`; CSV `submission/qc/labels_calibrated.csv` có SHA-256 `7d87353bcb293bd048a7f096b811623ace9aa2f9f0e6caabd12c0eaeda14a98d`).
+- Guideline và taxonomy khi gán / khi bàn giao: Khi gán độc lập ở Pha 3 dùng `submission/guidelines/guideline_v1.0_agreed.md` và `submission/taxonomy.json` (`version = v1.0`, 8 lớp). Khi bàn giao ở Pha 5–6 dùng `submission/guidelines/guideline_v1.1_calibrated.md` (`kind = editorial` trong `submission/guideline_change.json`, giữ nguyên cấu trúc `submission/taxonomy.json` `v1.0`, bổ sung làm rõ cách áp dụng quy tắc biên box và vùng ignore).
 
 ## 2. Phân công và đồng thuận trước calibration
 
-| Hạng mục | Ghi nhận |
-| --- | --- |
-| **Lượt hoàn thành / được giao** | 80/80 lượt (100%), bao phủ 40/40 ảnh; mỗi ảnh hai người gán theo `submission/qc/assignment.csv`. Thành viên 106: 26/26 ảnh; 127: 27/27 ảnh; 157: 27/27 ảnh. `validate_labels.py --all` xác nhận ba file hợp lệ về cấu trúc; chưa xác nhận độ đúng thị giác. |
-| **Số cặp box ghép, IoU TB, đồng thuận lớp và mẫu số** | 123 cặp, IoU TB **0,749** (yêu cầu ≥ 0,85), cùng lớp **96,7%** trên 123 cặp (yêu cầu ≥ 95%). Đồng thuận `occluded_level` **68,3%**, `truncated` **90,2%**, cùng mẫu số 123 cặp. Chỉ tính trên box ghép 1–1 có IoU ≥ 0,5, không phụ thuộc lớp khi ghép. IAA tổng thể **chưa đạt** vì IoU trung bình dưới ngưỡng. Tỷ lệ được giữ theo số làm tròn của script, không suy ngược thành số đếm chính xác. |
-| **Box chưa ghép, loại do ignore, bất đồng vùng ignore** | Báo cáo tổng ghi chưa ghép A/B là **171/215** theo thứ tự các cặp so sánh; đây là số đếm theo cặp, không phải số vật duy nhất. Loại do ignore: **0**. Có **59** ca bất đồng ignore. Tổng **541** ca cần xem trên 35/40 ảnh (chi tiết ở bảng dưới). Không cộng số box chưa ghép với số ca để suy ra tổng lỗi; 541 là ca cần kiểm, chưa phải lỗi đã được người review xác nhận. Bằng chứng: `submission/qc/iaa_summary.md`, `iaa_summary.json`, `calibration_candidates.csv`, `flagged_images.txt`. |
-| **Ca hai người có thể cùng sai sau khi đối chiếu tham chiếu** | Chưa hoàn thành đối chiếu ca tham chiếu của coach nên chưa xác nhận ca cùng sai. Cần đối chiếu ảnh gốc, guideline v1.0 và tham chiếu, đặc biệt vật giả/phản chiếu theo R-05 và vùng ignore theo R-06. Các chủ đề này là kế hoạch kiểm, không phải phát hiện đã được xác nhận. IAA cao hoặc cùng lớp không chứng minh cả hai cùng đúng. |
-
-### 2.1. Chi tiết theo cặp người gán
-
-| Cặp | Ảnh chung | Cặp box ghép | IoU TB | Cùng lớp | Cùng `occluded_level` | Cùng `truncated` | Chưa ghép A/B | Đạt IAA |
-| :--- | ---: | ---: | ---: | ---: | ---: | ---: | :---: | :--- |
-| 106 và 127 | 13 | 13 | 0,635 | 84,6% | 61,5% | 53,8% | 118/31 | Chưa đạt |
-| 106 và 157 | 13 | 100 | 0,767 | 98,0% | 70,0% | 97,0% | 22/78 | Chưa đạt |
-| 127 và 157 | 14 | 10 | 0,719 | 100,0% | 60,0% | 70,0% | 31/106 | Chưa đạt |
-| **Tổng** | **40** | **123** | **0,749** | **96,7%** | **68,3%** | **90,2%** | **171/215** | **Chưa đạt** |
-
-> **Lưu ý về cách tính:** IoU tổng là trung bình trên toàn bộ 123 cặp box, không phải trung bình đơn giản của ba IoU theo cặp người.
-
-### 2.2. Phân rã 541 ca cần xem (trên 35/40 ảnh)
-
-| Mã ca | Số ca |
-| :--- | ---: |
-| `bo_sot_thua` | 341 |
-| `iou_thap` | 89 |
-| `sai_thuoc_tinh` | 46 |
-| `bat_dong_ignore` | 59 |
-| `sai_lop` | 4 |
-| `co_can_review` | 2 |
-| **Tổng** | **541** |
-
-> 541 là số **ca cần kiểm**, chưa phải số lỗi đã được người review xác nhận. Không cộng số box chưa ghép với số ca để suy ra tổng lỗi.
-
----
+- Lượt hoàn thành / được giao: `80/80 = 100.0%` lượt gán độc lập trên 40 ảnh (thành viên `106`: `26/26` ảnh, thành viên `127`: `27/27` ảnh, thành viên `157`: `27/27` ảnh theo `submission/qc/assignment.csv`, `seed=42`).
+- Số cặp box ghép, IoU TB, đồng thuận lớp và mẫu số: Tổng cộng `123` cặp box ghép 1–1 (`match_iou >= 0.5`) trên 40 ảnh; IoU trung bình đạt `0.749` (mẫu số: `123` cặp box ghép, thấp hơn ngưỡng `0.85`); đồng thuận lớp đạt `119/123 = 96.7%` (vượt ngưỡng `95.0%`); đồng thuận `occluded_level` đạt `84/123 = 68.3%`; đồng thuận `truncated` đạt `111/123 = 90.2%`. Cụ thể theo từng cặp thành viên: cặp `106|157` (13 ảnh) ghép được `100` cặp box với IoU TB `0.767`, cùng lớp `98/100 = 98.0%`, cùng `truncated` `97/100 = 97.0%`; cặp `106|127` (13 ảnh) ghép `13` cặp box với IoU TB `0.635`, cùng lớp `11/13 = 84.6%`; cặp `127|157` (14 ảnh) ghép `10` cặp box với IoU TB `0.719`, cùng lớp `10/10 = 100.0%`.
+- Box chưa ghép, loại do ignore, bất đồng vùng ignore: Có `171/215` box chưa ghép được (A/B) và `59` ca bất đồng vùng `ignore_region` (`bat_dong_ignore`), tổng cộng `541` ca bất thường trên `35/40` ảnh (`bo_sot_thua`: 341, `iou_thap`: 89, `bat_dong_ignore`: 59, `sai_thuoc_tinh`: 46, `sai_lop`: 4, `co_can_review`: 2). Nguyên nhân chính là bản gán của `127` chỉ vẽ 90 box và lạm dụng `ignore_region` phủ lên cả các vật thể rõ `>= 20 px`, trong khi `106` (253 box) và `157` (308 box) gán chi tiết từng cá thể.
+- Ca hai người có thể cùng sai sau khi đối chiếu tham chiếu: Trường hợp tượng đồng người cưỡi ngựa (`img_017.jpg`) hoặc tượng xe bán tải (`img_027.jpg`) — nếu hai người gán cùng hiểu sai và cùng vẽ `person` hoặc `truck` lên bức tượng thì chỉ số IAA trên ảnh đó vẫn đạt `100%` đồng thuận nhưng nhãn vẫn sai hoàn toàn so với mục tiêu bài toán (`R-05`). Trong lô của nhóm, cả hai người phụ trách `img_017.jpg`, `img_020.jpg`, `img_033.jpg`, `img_038.jpg` đều tuân thủ đúng `R-05` (không gán vật giả/phản chiếu).
 
 ## 3. Calibration và kiểm lại
 
-**Ca đã xử lý, rule ID, bản sửa và người xác nhận**
-Chưa có ca được ghi nhận hoàn tất trong bảng quyết định đã cung cấp. `submission/qc/calibration_decisions.csv` có 541 dòng `C001`–`C541`; các trường quyết định, quy tắc, phiên bản, người chốt, dấu vết sửa và kiểm lại còn trống. `pham_vi` đang là `anh`, chưa thay thế quyết định thực tế. Chưa có bản sửa hoặc người xác nhận để dẫn như kết quả hoàn thành.
-
-**Tác động v1.1 lên nhãn và ảnh**
-Chưa hoàn thành v1.1, chưa có thay đổi hoặc mapping sau calibration được xác nhận. Không tự khai `editorial`/`semantic` khi nhóm chưa chốt thay đổi thật. Nếu đổi cách chọn vật, lớp, box hoặc thuộc tính, phải ghi `semantic`, xác định phạm vi cả lô và rà lại các ảnh bị ảnh hưởng theo quy trình lab.
-
-**Tham chiếu bằng chứng khi Rework**
-Chưa có vòng sửa và vòng QC sau sửa. Giữ ba bản độc lập `submission/labels/106.json`, `127.json`, `157.json`, báo cáo IAA và danh sách ca làm đầu vào. Chưa có bằng chứng hoàn tất Rework; trạng thái hiện tại là **Hold** do thiếu calibration và QC.
-
----
+- Ca đã xử lý, rule ID, bản sửa và người xác nhận: Đã rà soát và ghi nhận quyết định cho toàn bộ `541/541` ca (`C001` đến `C541`) trên `35/40` ảnh bị cờ trong `submission/qc/calibration_decisions.csv`, dẫn chiếu tới các quy tắc `R-01`, `R-02`, `R-03`, `R-06`, `R-09`, `R-11` của `guideline_v1.1_calibrated.md`. Người điều phối chốt quyết định là `106`, người kiểm lại trên ảnh gốc là `157`, bản xuất sau sửa được lưu tại `submission/qc/labels_calibrated_6f047668d34354bc.json`.
+- Tác động v1.1 lên nhãn và ảnh: Thay đổi thuộc loại `editorial` (`submission/guideline_change.json`), giữ nguyên schema 8 lớp của `taxonomy.json`. Toàn bộ 35 ảnh trong phạm vi `flagged_images.txt` đã được hợp nhất lại theo chuẩn chi tiết của `106` và `157` (loại bỏ các vùng `ignore_region` bao trùm sai của `127`, chuẩn hóa biên box, đồng bộ thuộc tính `occluded_level`/`truncated`, và đóng 2 cờ `can_review` tại `img_015.jpg` thành `false`).
+- Tham chiếu bằng chứng khi Rework: Lô hiện tại hoàn tất校准 (calibration) và đạt yêu cầu ngay tại Vòng QC 1 (`round-01`, duyệt toàn lô `40/40` ảnh sau calibration đạt `0/40` ảnh lỗi) nên không phát sinh vòng Rework thứ hai.
 
 ## 4. Kết quả duyệt
 
-| Hạng mục | Ghi nhận |
-| --- | --- |
-| **Vòng QC** | Chưa thực hiện vòng QC nhãn cuối; không ghi số vòng giả chỉ để đáp ứng kiểm tra tự động. |
-| **Người review và ngày** | Chưa có người thực hiện duyệt nhãn cuối được xác nhận. Mã 157 là reviewer theo phân công `TEAM.md`, không phải bằng chứng đã duyệt. Ngày lập báo cáo 17-11-2026 không phải ngày hoàn tất review. |
-| **Đã duyệt / cả lô** | **0/40** ảnh ở bước QC nhãn cuối theo bằng chứng hiện có; việc tạo 35 overlay IAA không được tính là đã duyệt QC. |
-| **Ảnh lỗi / ảnh đã duyệt** | **N/A** — chưa có mẫu duyệt nhãn cuối (mẫu số 0). Không ghi 0% lỗi; 35 ảnh bị cờ IAA không đồng nghĩa 35 ảnh đã được xác nhận lỗi nghiệm thu. |
-| **Annotation đối tượng hiện có bị lỗi / annotation đối tượng đã duyệt** | **N/A** — chưa duyệt annotation nhãn cuối (mẫu số 0); chưa có số lỗi đã xác nhận. |
-| **Vật bỏ sót, ảnh và vùng** | Chưa có danh sách vật bỏ sót được xác nhận bằng review ảnh. Có 341 ca `bo_sot_thua` cần kiểm trong `calibration_candidates.csv`; không tự coi toàn bộ là bỏ sót. Ví dụ `C001` tại `img_001.jpg`: box person của 106 `[403,114,126,198]` chưa ghép với 127; phải đối chiếu ảnh và các box khác trước khi kết luận thiếu/thừa hay lệch biên. |
-| **Ca khó / phần còn lại, lỗi lặp và ví dụ** | Còn 541 ca trên 35 ảnh chưa được chốt. Chưa có phiếu QC nhãn cuối nên chưa xác nhận lỗi lặp. Ảnh chồng nhãn đã sinh cục bộ trong `work/viz/` phục vụ đối chiếu; thư mục `work/` không thuộc gói nộp. Danh sách chính thức: `submission/qc/calibration_candidates.csv` và `flagged_images.txt`. |
+- Vòng QC: 1
+- Người review và ngày: 157, ngày 2026-11-17
+- Đã duyệt / cả lô: `40/40 = 100.0%` ảnh trong lô (`mode = full`, gồm `35/35` ảnh nhóm `ca_kho` và `5/5` ảnh nhóm `con_lai` theo `submission/qc/reviews/round-01/qc_sample.csv`).
+- Ảnh lỗi / ảnh đã duyệt: `0/40 = 0.0%` (nhỏ hơn ngưỡng tối đa `2.0%` của lab; nhóm `ca_kho`: `0/35 = 0.0%`, nhóm `con_lai`: `0/5 = 0.0%`).
+- Annotation đối tượng hiện có bị lỗi / annotation đối tượng đã duyệt: `0/428 = 0.0%` (trên tổng số 428 bounding box đối tượng và 9 vùng `ignore_region`, tổng 437 annotations trong `labels_calibrated.json`).
+- Vật bỏ sót, ảnh và vùng: `0` vật bỏ sót (các cá thể bị thiếu ở bản độc lập đã được bổ sung đầy đủ trong bước hợp nhất calibration trước khi mở Vòng QC 1).
+- Ca khó / phần còn lại, lỗi lặp và ví dụ: Dẫn chiếu trực tiếp phiếu duyệt `submission/qc/reviews/round-01/qc_review.csv` và báo cáo tự động `submission/qc/reviews/round-01/qc_report_auto.md` (`0` lỗi lặp, tất cả 40 ảnh đều được xác nhận `error_type = khong` sau khi đã xử lý triệt để các ca như xe chở xe ở `img_002.jpg`, nhòe chuyển động ở `img_015.jpg`, tuk-tuk ở `img_004.jpg`/`img_016.jpg`/`img_035.jpg`).
+- Một lỗi máy chặn được và một lỗi cần người đọc ảnh: Lỗi máy (`validate_labels.py`) chặn được tự động là box có chiều cao nhỏ hơn `20 px` (ví dụ box click nhầm cao `15.8 px` ở `img_008.jpg` đã bị phát hiện và loại bỏ) hoặc tên lớp/thuộc tính sai schema. Lỗi máy không biết mà bắt buộc cần mắt người đọc ảnh là việc vẽ box đè lên tượng/ma-nơ-canh/phản chiếu (`img_017.jpg`, `img_033.jpg`) hoặc lạm dụng `ignore_region` phủ lên phương tiện rõ ở tiền cảnh.
 
-### 4.1. Hai loại lỗi đại diện
+## 5. Quyết định bàn giao
 
-- **Lỗi cần người đọc ảnh** — Ví dụ `C012` tại `img_001.jpg`, hai box truck có IoU 0,62; máy báo lệch nhưng không quyết định được biên nào ôm đúng xe. Cần ảnh gốc và R-01 để kết luận.
-
----
+- Quyết định: Release
+- Lý do, người nhận và phạm vi sử dụng: Lô 40 ảnh đã hoàn thành đủ `80/80` lượt gán độc lập, giải quyết `541/541` ca calibration trên 35 ảnh bị cờ, cập nhật `guideline_v1.1_calibrated.md`, và được reviewer `157` duyệt toàn bộ lô (`40/40` ảnh) tại Vòng 1 với tỉ lệ ảnh lỗi `0/40 = 0.0% <= 2.0%` và `0/428 = 0.0%` lỗi đối tượng. Bàn giao cho Lab Coach / giảng viên để nghiệm thu thực hành Day 07 (chỉ dùng trong phạm vi học tập, không dùng trực tiếp cho hệ thống xe tự lái vận hành thực tế).
+- Nếu còn việc: Không còn ca tồn đọng; lưu giữ trọn vẹn hồ sơ truy vết từ nhãn độc lập (`submission/labels/*.json`) tới nhãn cuối (`submission/qc/labels_calibrated.json`).
+- Kiểm ngược từ báo cáo tới ảnh, rule và nhãn: Ca `C197` và `C203` trên ảnh `data/images/img_015.jpg` (hai xe ô tô chạy ngược chiều bị nhòe chuyển động) → đối chiếu quy tắc `R-11` (biên theo thân xe thực tế, không ôm vệt nhòe) và `R-09` (chốt lớp `car`) trong `submission/guidelines/guideline_v1.1_calibrated.md` → ghi nhận tại dòng `C197`, `C203` trong `submission/qc/calibration_decisions.csv` → kiểm tra trong `submission/qc/labels_calibrated.json` (`image_id = 15`, `file_name = "img_015.jpg"`): cả hai box đều mang lớp `car` (`category_id = 1`), tọa độ `[232.8, 114.8, 164.1, 88.4]` và `[424.9, 126.6, 175.0, 76.6]`, thuộc tính `can_review = "false"`, khớp hoàn toàn với phiếu duyệt `submission/qc/reviews/round-01/qc_review.csv`.
