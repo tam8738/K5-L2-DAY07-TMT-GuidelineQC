@@ -1,38 +1,100 @@
 # Thông tin nhóm
 
-- Tên nhóm: TMT
-- Mã thành viên (ba chữ số): 106, 127, 157
-- Người điều phối: 106
-- Người review bản cuối: 157
-- Commit chốt bài (điền ở kênh nộp sau khi commit): Chờ điền khi nộp bài
+- Tên nhóm: TMT.
+- Mã thành viên: 106, 127, 157.
+- Người điều phối: 106.
+- Người review bản cuối theo phân công: 157; chưa thực hiện duyệt nhãn cuối.
+- Commit chốt bài: ghi tại kênh nộp sau khi commit.
+- Trạng thái hiện tại: Hold — chưa hoàn thành calibration và QC nhãn cuối.
 
-## Trạng thái guideline
+## 1. Guideline và taxonomy
 
-- Đã có ba tài liệu cá nhân: [106](submission/guidelines/individual/guideline_106.md), [127](submission/guidelines/individual/guideline_127.md), [157](submission/guidelines/individual/guideline_157.md).
-- Bản tổng hợp: [guideline TMT v1.0](submission/guidelines/guideline_v1.0_agreed.md), soạn ngày `2026-11-17`; có bảng đối chiếu và lựa chọn xử lý khác biệt.
-- Bản 127, 157 và bản chung có hỗ trợ AI; việc có file chưa xác nhận khảo sát / nộp độc lập hoặc cuộc họp phê duyệt.
-- Taxonomy `v1.0`: bảy lớp đối tượng và `ignore_region`, cấu hình CVAT tại `cvat/labels_generated.json`.
-- Xác nhận của các thành viên và mốc khóa v1.0: **chưa ghi nhận**; cần đối chiếu ảnh và thống nhất trước khi gán độc lập.
+- Có ba guideline cá nhân:
+  - [106](submission/guidelines/individual/guideline_106.md).
+  - [127](submission/guidelines/individual/guideline_127.md).
+  - [157](submission/guidelines/individual/guideline_157.md).
+- Có [guideline chung v1.0](submission/guidelines/guideline_v1.0_agreed.md).
+- Taxonomy v1.0 gồm bảy lớp đối tượng: car, truck, van, bus, tuk_tuk, motorcycle, person; và vùng ignore_region.
+- Cấu hình nhãn CVAT: [labels_generated.json](cvat/labels_generated.json).
+- Giữ nguyên các ngưỡng rules của lab.
+- Xác nhận của cả nhóm và mốc khóa guideline v1.0: chưa được ghi nhận trong tài liệu.
 
-## Kết quả tóm tắt (điền cuối bài)
+## 2. Phân công và nhãn độc lập
 
-- Lượt gán hoàn tất / được giao:
-- IAA trước calibration (kèm mẫu số):
-- Số ảnh phải calibration: … / 40
-- Vòng QC và số ảnh đã duyệt / cả lô:
-- Tỉ lệ lỗi: … % theo ảnh (…/…), … % theo đối tượng (…/…)
-- **Quyết định** (Release / Hold / Rework) và lý do một dòng:
+Bộ dữ liệu gồm 40 ảnh. Mỗi ảnh được phân cho hai người gán, tổng cộng 80 lượt.
 
-## Tiếp nhận nhãn 127
+| Mã thành viên | Ảnh được giao | Ảnh có trong COCO | Kiểm tra cấu trúc |
+|---|---:|---:|---|
+| 106 | 26 | 26 | Hợp lệ |
+| 127 | 27 | 27 | Hợp lệ |
+| 157 | 27 | 27 | Hợp lệ |
+| Tổng | 80 lượt | 80 lượt | Cả ba file hợp lệ |
 
-- Đã nhận bản xuất mới `127.zip` và cập nhật `submission/labels/127.json`: 27 ảnh, 90 nhãn; kiểm tra cấu trúc đạt.
-- Sau đồng bộ GitHub, có 53/80 lượt gán theo phân công: 106 (26 ảnh), 127 (27 ảnh). Còn thiếu nhãn độc lập 157 (27 ảnh).
-- Đã thử IAA; công cụ dừng vì thiếu lượt gán. Chưa có số đo IAA, calibration hoặc quyết định Release.
-- Bằng chứng và lệnh tiếp theo: [tiếp nhận 127](submission/qc/import_127.md).
+- Bảng phân công: [assignment.csv](submission/qc/assignment.csv).
+- Nhãn độc lập:
+  - [106.json](submission/labels/106.json).
+  - [127.json](submission/labels/127.json).
+  - [157.json](submission/labels/157.json).
+- Đã chạy validate_labels.py --all, cả ba file hợp lệ về cấu trúc.
+- Kết quả kiểm tra cấu trúc không xác nhận box đúng vật, đúng lớp, sát biên hoặc không bỏ sót.
+- Giữ nguyên các bản độc lập để đối chiếu trong calibration.
 
-## Rà soát bổ sung 127
+## 3. Kết quả IAA trước calibration
 
-- Đã rà AI ảnh gốc và overlay cho đủ 27 ảnh của 127; 23 ảnh có phát hiện cần sửa, tổng 79 phát hiện/nhóm vấn đề. Đây không phải số đo QC người thật.
-- Bản COCO 127 hợp lệ về cấu trúc nhưng chưa đạt chất lượng bàn giao qua rà ảnh. Giữ nguồn độc lập và log theo SHA-256 trong [báo cáo 127](submission/qc/review_127_ai.md).
-- Đã bổ sung [ghi chú 127](submission/individual_notes/127.md) và [phụ lục guideline](submission/guidelines/individual/guideline_127_review.md) bằng quan sát thực tế của lượt rà AI; không ghi thay trải nghiệm hoặc xác nhận của thành viên.
-- Chưa có xác nhận khóa v1.0; xem [bảng còn chờ](submission/qc/guideline_confirmation_pending.md). Còn thiếu nhãn 157 và ghi chú 106/157, chưa có IAA/calibration/QC cuối.
+- Ảnh được so sánh: 40/40.
+- Lượt gán hợp lệ: 80/80.
+- Số người gán: 3.
+- Số cặp box ghép: 123.
+- IoU trung bình: 0,749; yêu cầu tối thiểu 0,85.
+- Đồng thuận lớp: 96,7%; yêu cầu tối thiểu 95%.
+- Đồng thuận occluded_level: 68,3%.
+- Đồng thuận truncated: 90,2%.
+- Kết luận IAA: chưa đạt.
+
+IoU trung bình và các tỷ lệ đồng thuận trên chỉ tính trên 123 cặp box đã ghép một–một với IoU từ 0,5 trở lên. Các box chưa ghép được xem riêng; đồng thuận cao không chứng minh mọi nhãn đều đúng.
+
+| Loại ca cần xem | Số ca |
+|---|---:|
+| Bỏ sót/thừa hoặc box chưa ghép | 341 |
+| IoU thấp | 89 |
+| Sai khác thuộc tính | 46 |
+| Bất đồng vùng ignore | 59 |
+| Sai khác lớp | 4 |
+| Có can_review | 2 |
+| Tổng | 541 |
+
+- Số ảnh cần calibration: 35/40.
+- 541 là số ca cần xem, không phải số lỗi đã được reviewer xác nhận.
+- Báo cáo: [iaa_summary.md](submission/qc/iaa_summary.md).
+- Danh sách ca: [calibration_candidates.csv](submission/qc/calibration_candidates.csv).
+- Đã tạo ảnh chồng nhãn trong work/viz/ để xem cục bộ; không đưa work/ vào gói nộp.
+
+## 4. Trạng thái calibration và QC
+
+- Đã tạo [calibration_decisions.csv](submission/qc/calibration_decisions.csv).
+- Chưa hoàn thành xác nhận và quyết định xử lý 541 ca.
+- Chưa hoàn thành sửa nhãn và kiểm lại sau calibration.
+- Chưa hoàn thiện guideline_v1.1_calibrated.md.
+- Chưa tạo thành công bộ nhãn cuối được kiểm duyệt.
+- Chưa thực hiện vòng QC nhãn cuối trên toàn bộ 40 ảnh.
+- Tỷ lệ lỗi theo ảnh: chưa đo.
+- Tỷ lệ lỗi theo đối tượng: chưa đo.
+- build_final.py chưa hoàn tất do bảng quyết định và guideline sau calibration chưa đầy đủ.
+- Chưa có kết quả check_submission.py xác nhận gói bàn giao đầy đủ.
+
+## 5. Quyết định và phần còn thiếu
+
+**Quyết định: Hold.**
+
+Lý do: đã đủ lượt gán và có báo cáo IAA, nhưng IoU trung bình chưa đạt; còn 541 ca trên 35 ảnh cần calibration. Chưa có nhãn cuối và bằng chứng QC toàn lô để xác nhận Release.
+
+Phân công tiếp tục theo vai trò của nhóm:
+
+| Phần còn thiếu | Người phụ trách |
+|---|---|
+| Điều phối calibration và thống nhất quyết định | 106 |
+| Đối chiếu ảnh, quy tắc và các ca bất đồng | 106, 127, 157 |
+
+Đây là phân công xử lý tiếp, không phải xác nhận các công việc đã hoàn thành. Thời gian bổ sung theo thống nhất của nhóm và hướng dẫn coach.
+
+Nhóm nộp bằng chứng đã có qua kênh lớp theo hướng dẫn dành cho bài còn Hold trong SUBMISSION.md. Trạng thái Hold không đồng nghĩa bài đã hoàn thành đầy đủ hoặc được nghiệm thu.
